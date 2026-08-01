@@ -1,0 +1,356 @@
+# Day 1 Theory – HTML Structure
+
+What is HTML?
+HTML stands for HyperText Markup Language.
+It is the skeleton of every website. HTML only describes structure and content. It does not style the page or make it interactive.
+
+# Semantic HTML
+Semantic tags tell the browser and developers what the content actually means.
+
+<header> → Top section of the page, used for logo, name, navigation
+<nav> → Navigation links, used for menus
+<main> → Main content of the page, the important part
+<section> → A thematic group of content, used for About, Skills, Projects, etc.
+<footer> → Bottom of the page, used for copyright and links
+<h1> to <h6> → Headings, used for hierarchy
+<p> → Paragraph, used for text blocks
+<ul> and <li> → Unordered list, used for skills or project lists
+<a> → Link, used for navigation and external links
+
+# Non-semantic tags like <div> and <span> have no meaning.
+We avoid them when a semantic tag exists.
+
+# Why Structure Matters:
+1.Better for SEO, because Google understands your page more easily
+2.Better for accessibility, because screen readers can understand the layout
+3.Easier to style later with CSS
+4.Cleaner and more professional code
+5.Quick Rules You Should Remember
+6.Use only one <h1> per page, usually your name
+7.Use <section> for major parts of the page
+8.Always put content inside proper tags
+9.Keep your code indented properly for readability
+10.Every opening tag needs a closing tag
+
+What I Did Today:
+I created the skeleton of a real portfolio using proper semantic HTML.
+That is the correct foundation.
+
+# Day 1 — Linux Basics
+
+## Goal
+By the end of today, I should be able to:
+
+- navigate Linux confidently,
+- create, copy, move, rename, and delete files,
+- read file contents,
+- understand the Linux directory structure,
+- use `man` and `--help` to learn commands on my own.
+
+## Linux File System
+Linux starts from the root directory:
+
+```bash
+/
+```
+
+Important directories:
+
+- `/` → Root of the filesystem
+- `/home` → User files and workspace
+- `/root` → Administrator’s home directory
+- `/etc` → System configuration files
+- `/var` → Logs and changing data
+- `/usr` → Applications and utilities
+- `/bin` → Essential commands
+- `/tmp` → Temporary files
+
+## Navigation Commands
+
+Check current directory:
+
+```bash
+pwd
+```
+
+List files:
+
+```bash
+ls
+```
+
+Detailed list:
+
+```bash
+ls -l
+```
+
+Show hidden files:
+
+```bash
+ls -la
+```
+
+Change directory:
+
+```bash
+cd Desktop
+```
+
+Go back:
+
+```bash
+cd ..
+```
+
+Go home:
+
+```bash
+cd ~
+```
+
+Go to root:
+
+```bash
+cd /
+```
+
+Return home:
+
+```bash
+cd
+```
+
+## Create Practice Area
+
+```bash
+mkdir CyberLab
+cd CyberLab
+mkdir Notes Labs Scripts
+ls
+```
+
+## File Commands
+
+Create a file:
+
+```bash
+touch day1.txt
+```
+
+Rename it:
+
+```bash
+mv day1.txt linux_notes.txt
+```
+
+Copy it:
+
+```bash
+cp linux_notes.txt backup.txt
+```
+
+Delete the backup:
+
+```bash
+rm backup.txt
+```
+
+## Read and Write Files
+
+Write text into the file:
+
+```bash
+echo "Linux Day 1" > linux_notes.txt
+```
+
+Display file contents:
+
+```bash
+cat linux_notes.txt
+```
+
+Append another line:
+
+```bash
+echo "Learning terminal basics." >> linux_notes.txt
+```
+
+Read again:
+
+```bash
+cat linux_notes.txt
+```
+
+## Learn Commands Yourself
+
+View the manual:
+
+```bash
+man ls
+```
+
+Quit manual:
+
+```bash
+q
+```
+
+Or use help:
+
+```bash
+ls --help
+```
+
+## Mini Challenge
+
+Try to:
+
+- create a folder called `Practice`,
+- enter it,
+- create a file named `commands.txt`,
+- add two lines of text,
+- display the file,
+- copy it to `commands_backup.txt`,
+- delete the backup,
+- return to your home directory.
+
+## Quick Quiz
+
+1. What command shows your current directory?
+2. Which command lists hidden files?
+3. What's the difference between `>` and `>>`?
+4. What does `cd ..` do?
+5. What command shows a command's manual?
+
+## Today's Mission
+
+- Complete all commands.
+- Finish the mini challenge.
+- Answer the 5 quiz questions.
+- If any command behaves unexpectedly, note exactly what happened.
+
+# Day 1 — C Language Basics
+
+## Goal
+By the end of today, I should be able to:
+
+- understand what C is,
+- use variables and data types,
+- take input and print output,
+- use basic arithmetic operators,
+- write and run a simple C program.
+
+## What is C?
+C is a general-purpose programming language used to build software and understand core programming concepts. It is one of the best languages for learning how computers work.
+
+## Variables
+A variable is a named location in memory used to store data.
+
+Example:
+
+```c
+int age = 18;
+```
+
+Here:
+- `int` is the data type
+- `age` is the variable name
+- `18` is the value
+
+## Data Types
+Data types tell C what kind of value a variable will store.
+
+Basic data types:
+
+- `int` → whole numbers
+- `float` → decimal numbers
+- `char` → single character
+
+Examples:
+
+```c
+int marks = 95;
+float price = 99.5;
+char grade = 'A';
+```
+
+## Input and Output
+`printf()` is used to print output.
+
+`scanf()` is used to take input.
+
+Example:
+
+```c
+#include <stdio.h>
+
+int main() {
+    int age;
+    printf("Enter your age: ");
+    scanf("%d", &age);
+    printf("Your age is %d", age);
+    return 0;
+}
+```
+
+## Format Specifiers
+Format specifiers tell C what type of value to read or print.
+
+- `%d` → int
+- `%f` → float
+- `%c` → char
+- `%s` → string
+
+## Operators
+Operators perform operations on values.
+
+Basic arithmetic operators:
+
+- `+` → addition
+- `-` → subtraction
+- `*` → multiplication
+- `/` → division
+- `%` → remainder
+
+Example:
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 10, b = 3;
+    printf("%d\n", a + b);
+    printf("%d\n", a - b);
+    printf("%d\n", a * b);
+    printf("%d\n", a / b);
+    printf("%d\n", a % b);
+    return 0;
+}
+```
+
+## Quick Rules
+- Declare variables before using them.
+- Use `&` with `scanf()` for normal variables.
+- End every statement with a semicolon.
+- Keep variable names meaningful.
+
+## Mini Practice
+Try to write a program that:
+- asks for your name or age,
+- stores the input in a variable,
+- prints it back on the screen.
+
+## Quick Quiz
+1. What does `int` store?
+2. Which function prints output in C?
+3. Which function takes input?
+4. What does `%d` mean?
+5. What does `&` do in `scanf()`?
+
+## Today's Mission
+- Learn variables.
+- Learn data types.
+- Learn input/output.
+- Learn basic operators.
+- Write one simple C program.
