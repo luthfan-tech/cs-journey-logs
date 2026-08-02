@@ -12,7 +12,7 @@ This repo tracks my learning journey as a first-year B.Tech CSE student, focused
 - **Cybersecurity / Pentesting Path**
   - Strengthen fundamentals (Linux, networking, web security).
   - Gradually move towards ethical hacking and practical labs.
-- **C & CS Fundamentals**
+- **CS Fundamentals**
   - Understand C basics, memory, and problem-solving.
   - Build a base in core CS subjects needed for my degree.
 
@@ -20,19 +20,31 @@ This repo tracks my learning journey as a first-year B.Tech CSE student, focused
 
 ## 🗓 30-Day Focus (Pre-college)
 
-1. **Full-Stack (Primary)**
-   - Refresh HTML, CSS, JavaScript.
-   - Build small front-end projects.
-   - Start a simple backend (Python/Flask or Node) with a database.
-   - At least one deployable project.
+## Current Focus
+- Linux basics and commands
+- Web basics: HTML + CSS
+- Networking fundamentals
+- Databases (SQL + basic concepts)
+- Light CS theory (algorithms, how computers work)
 
-2. **Cybersecurity (Secondary)**
-   - Revisit Linux and basic networking.
-   - Read and practice core concepts (ports, protocols, HTTP, OWASP Top 10).
-   - Do small, safe lab-style exercises (no illegal activity).
+## Why This Mix?
+- Networking is core for both pentesting and full‑stack development
+- Databases are essential for web apps and security testing
+- Linux + Web gives you hands‑on progress
+- CS theory supports everything without heavy coding
 
-3. **CS Basics (Foundations)**
-   - Light exposure to DSA thinking (arrays, lists, basic complexity).
+- ## Networking Topics (High-Level)
+- What is a network?
+- IP addresses, ports, protocols (TCP/UDP)
+- HTTP/HTTPS, DNS, DHCP
+- Basic tools: ping, netstat, curl, nslookup
+
+## Databases Topics (High-Level)
+- What is a database?
+- Tables, rows, columns
+- Basic SQL: SELECT, INSERT, UPDATE, DELETE
+- Simple schema design (users, posts, etc.)
+
 
 ---
 
