@@ -1,1 +1,211 @@
+# Day 2 — CSS Basics + Linux + CS fundamentals
 
+## Part 1 — CSS
+
+### 1. Universal Selector + Reset
+```css
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+```
+
+- `*` targets every element
+- Removes default browser margin and padding
+- `box-sizing: border-box` keeps padding and border inside the width
+
+### 2. Body Styling
+```css
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+}
+```
+
+- Sets default font for the whole page
+- `line-height: 1.6` makes text easier to read
+- Light gray background and dark text
+
+### 3. Header + Flexbox
+```css
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+```
+
+- `display: flex` makes the header a flexible container
+- `justify-content: space-between` pushes name to the left and links to the right
+- `align-items: center` vertically centers items
+
+This is the most important concept today.
+
+### 4. Navigation Links
+```css
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+nav a:hover {
+  color: #00bcd4;
+}
+```
+
+- Removes underline from links
+- Adds space between links
+- `:hover` changes color when the mouse is over the link
+
+### 5. Main Content Centering
+```css
+main {
+  max-width: 900px;
+  margin: 40px auto;
+}
+```
+
+- Limits width so it doesn’t stretch too wide on big screens
+- `margin: 40px auto` centers the content horizontally
+
+### 6. Section Cards
+```css
+section {
+  background: white;
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+}
+```
+
+- White background creates a card effect
+- Padding = space inside
+- Margin = space outside
+- Border-radius = rounded corners
+
+### 7. Footer
+Simple centered text with a dark background.
+
+### Core CSS Ideas
+- Margin = space outside the element
+- Padding = space inside the element
+- Flexbox = best way to align items in a row
+- Hover = interactive state
+
+---
+
+## Part 2 — Linux
+
+### Setup
+```bash
+cd ~/CyberLab
+touch secret.txt
+ls -l
+```
+
+### Permissions
+```bash
+chmod +x secret.txt
+chmod -x secret.txt
+chmod a+r secret.txt
+chmod 755 secret.txt
+ls -l
+```
+
+### Users & Ownership
+```bash
+whoami
+id
+who
+```
+
+### Processes
+```bash
+ps
+ps aux
+top
+```
+
+Quit `top` with:
+
+```bash
+q
+```
+
+Create and find a process:
+
+```bash
+sleep 100
+ps aux | grep sleep
+kill <PID>
+```
+
+### Package Management
+```bash
+sudo apt update
+sudo apt upgrade
+apt search tree
+sudo apt install tree
+tree ~/CyberLab
+sudo apt remove tree
+```
+
+### Searching
+```bash
+find ~/CyberLab -name "*.txt"
+which python3
+which ls
+```
+
+### Bonus Challenge
+```bash
+mkdir Test
+touch Test/file1.txt
+touch Test/file2.log
+touch Test/file3.txt
+
+find Test -name "*.txt"
+ls Test | wc -l
+find Test -type f | wc -l
+find Test -name "*.txt" | wc -l
+rm -rf Test
+```
+
+---
+
+## Today's Mission
+- Complete all CSS steps.
+- Complete all Linux steps.
+- Finish the bonus challenge.
+- Note anything that feels confusing.
+
+## Part 3 — CS Theory (Algorithms & Data Structures)
+
+### What is an Algorithm?
+An algorithm is a step-by-step procedure to solve a problem.
+
+Example:
+- Adding two numbers
+- Finding the largest number in a list
+- Sorting a list of names
+
+### What is a Data Structure?
+A data structure is a way to store and organize data so that it can be used efficiently.
+
+Common data structures:
+- Array
+- List
+- Stack
+- Queue
+- Tree
+
+### Why Learn This?
+- Helps write better code
+- Improves problem-solving skills
+- Important for interviews and real-world projects
+
+---
