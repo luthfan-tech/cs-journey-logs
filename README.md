@@ -1,6 +1,6 @@
 # Learning Journey — 2026
 
-This repo tracks my learning journey as a first-year B.Tech CSE student, focused on **full-stack development**, **cybersecurity**, and **CS fundamentals (C, DSA, OS, DBMS, networking)**. It’s a log of real progress — not fake commits or inflated achievements.
+This repo tracks my learning journey as a first-year B.Tech CSE student, focused on **full-stack development**, **cybersecurity**, and **CS fundamentals (DSA, OS, DBMS, networking)**. It’s a log of real progress — not fake commits or inflated achievements.
 
 ---
 
@@ -31,9 +31,7 @@ This repo tracks my learning journey as a first-year B.Tech CSE student, focused
    - Read and practice core concepts (ports, protocols, HTTP, OWASP Top 10).
    - Do small, safe lab-style exercises (no illegal activity).
 
-3. **C & CS Basics (Foundations)**
-   - C syntax, loops, functions, arrays, pointers.
-   - Simple problems for logic and debugging.
+3. **CS Basics (Foundations)**
    - Light exposure to DSA thinking (arrays, lists, basic complexity).
 
 ---
@@ -47,17 +45,6 @@ This repo tracks my learning journey as a first-year B.Tech CSE student, focused
 - **Small, consistent steps**
   - It’s fine if some days are short; consistency matters more than grind.
 
----
-
-## 📂 Repo Structure
-
-```text
-.
-├── README.md        # This plan
-├── logs/            # Daily / weekly learning logs
-├── fullstack/       # Notes, experiments, and mini-projects for web dev
-├── cybersecurity/   # Labs, scripts, and notes for security
-└── c_cs_fundamentals/ # C programs and core CS notes
 ```
 
 ---
