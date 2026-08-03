@@ -91,3 +91,482 @@ transition: color 0.3s ease;
 *CSS → Design
 *Flexbox → Alignment
 *Media Query → Responsive
+
+Part - 2
+# 📘 Day 3 Notes – Linux Networking Fundamentals
+
+## 🎯 Objective
+
+Learn the fundamentals of Linux networking by understanding:
+
+* IP Addresses
+* Network Interfaces
+* Hostnames
+* DNS
+* Routing
+* Connectivity Testing
+* Listening Ports
+* How a website loads
+
+---
+
+# 1. IP Address
+
+An **IP Address (Internet Protocol Address)** is a unique address assigned to every device connected to a network.
+
+Example:
+
+```
+192.168.1.10
+```
+
+Think of it as your computer's **house address** on a network.
+
+### Types of IP Addresses
+
+### Private IP
+
+Used inside local networks such as homes, schools, and offices.
+
+Private IP ranges:
+
+```
+10.0.0.0 – 10.255.255.255
+
+172.16.0.0 – 172.31.255.255
+
+192.168.0.0 – 192.168.255.255
+```
+
+Characteristics:
+
+* Used only inside local networks.
+* Assigned by the router or DHCP server.
+* Not directly accessible from the Internet.
+
+---
+
+### Public IP
+
+Assigned by your **Internet Service Provider (ISP).**
+
+Characteristics:
+
+* Visible on the Internet.
+* Used to communicate with websites and other Internet services.
+* Usually assigned to your router.
+
+---
+
+# 2. Network Interface
+
+A **Network Interface** is the connection your computer uses to communicate with a network.
+
+Examples:
+
+```
+eth0
+enp0s3
+wlan0
+```
+
+---
+
+# 3. Hostname
+
+A **Hostname** is the name of your computer on the network.
+
+Example:
+
+```
+kali
+```
+
+---
+
+# 4. Default Gateway
+
+The **Default Gateway** is the router that forwards traffic outside your local network.
+
+Example:
+
+```
+default via 10.0.2.2 dev enp0s3
+```
+
+Here:
+
+* **10.0.2.2** → Gateway
+* **enp0s3** → Network Interface
+
+---
+
+# 5. DNS (Domain Name System)
+
+DNS converts **domain names** into **IP addresses**.
+
+Example:
+
+```
+google.com
+      ↓
+142.x.x.x
+```
+
+Without DNS, you would have to remember the IP address of every website.
+
+DNS is often called **the Internet's phone book**.
+
+---
+
+# 6. Ping
+
+`ping` is used to test:
+
+* Network connectivity
+* Reachability
+* Latency (response time)
+* Packet loss
+
+Example:
+
+```bash
+ping -c 4 google.com
+```
+
+`-c 4` means:
+
+> Send exactly 4 packets.
+
+Stop a continuous ping using:
+
+```
+Ctrl + C
+```
+
+---
+
+# 7. Routing
+
+Routing determines where packets should be sent.
+
+View the routing table:
+
+```bash
+ip route
+```
+
+Example:
+
+```
+default via 10.0.2.2 dev enp0s3
+10.0.2.0/24 dev enp0s3
+```
+
+Meaning:
+
+* **default** → Default route
+* **via** → Gateway
+* **dev** → Network Interface
+
+---
+
+# 8. Listening Ports
+
+A **Port** identifies a network service running on a computer.
+
+Display listening ports:
+
+```bash
+ss -tuln
+```
+
+Flags:
+
+| Flag | Meaning        |
+| ---- | -------------- |
+| t    | TCP            |
+| u    | UDP            |
+| l    | Listening      |
+| n    | Numeric Output |
+
+---
+
+# 9. How a Website Loads
+
+When you type:
+
+```
+https://google.com
+```
+
+the browser performs the following steps:
+
+```
+Browser
+    ↓
+DNS Lookup
+    ↓
+Google's IP Address
+    ↓
+TCP Connection
+    ↓
+TLS Encryption (HTTPS)
+    ↓
+HTTP Request
+    ↓
+Server Response
+    ↓
+Browser Renders the Website
+```
+
+---
+
+# Commands Learned Today
+
+## Show IP Address
+
+```bash
+ip addr
+```
+
+Shortcut:
+
+```bash
+ip a
+```
+
+Purpose:
+
+* Displays IP addresses
+* Shows network interfaces
+* Displays MAC addresses
+* Shows interface status
+
+---
+
+## Show Network Interfaces
+
+```bash
+ip link
+```
+
+Purpose:
+
+* Shows interface names
+* Shows interface state (UP/DOWN)
+* Displays MAC addresses
+
+---
+
+## Show Hostname
+
+```bash
+hostname
+```
+
+Purpose:
+
+* Displays the computer's hostname.
+
+---
+
+## Detailed Host Information
+
+```bash
+hostnamectl
+```
+
+Purpose:
+Displays:
+
+* Hostname
+* Operating System
+* Kernel Version
+* Architecture
+
+---
+
+## Test Internet Connectivity
+
+```bash
+ping -c 4 google.com
+```
+
+Purpose:
+
+* Tests Internet connectivity.
+* Measures latency.
+* Checks packet loss.
+
+---
+
+## Test Local Machine
+
+```bash
+ping localhost
+```
+
+Purpose:
+
+* Tests the local network stack.
+
+---
+
+## Show Routing Table
+
+```bash
+ip route
+```
+
+Purpose:
+Displays:
+
+* Default gateway
+* Available routes
+* Network interfaces
+
+---
+
+## View DNS Configuration
+
+```bash
+cat /etc/resolv.conf
+```
+
+Purpose:
+Displays the configured DNS server(s).
+
+---
+
+## Resolve a Domain Name
+
+```bash
+getent hosts google.com
+```
+
+Purpose:
+Converts a hostname into its IP address.
+
+---
+
+## Show Listening Ports
+
+```bash
+ss -tuln
+```
+
+Purpose:
+Displays TCP and UDP ports currently listening for incoming connections.
+
+---
+
+## Show All Network Sockets
+
+```bash
+ss
+```
+
+Purpose:
+Displays all active network sockets.
+
+---
+
+## Older Alternative
+
+```bash
+netstat -tuln
+```
+
+Purpose:
+Displays listening ports (similar to `ss`).
+
+---
+
+# Important Definitions
+
+| Term       | Definition                                               |
+| ---------- | -------------------------------------------------------- |
+| IP Address | Unique address assigned to a device on a network         |
+| Private IP | Internal IP used within local networks                   |
+| Public IP  | Internet-facing IP assigned by an ISP                    |
+| DNS        | Converts domain names into IP addresses                  |
+| Gateway    | Router that forwards traffic outside the local network   |
+| Interface  | Network connection (e.g., `eth0`, `enp0s3`)              |
+| Hostname   | Name of the computer on a network                        |
+| Port       | Number identifying a network service                     |
+| Route      | Path that packets follow to reach a destination          |
+| Ping       | Tool used to test connectivity, latency, and packet loss |
+
+---
+
+# Commands to Memorize
+
+```bash
+ip addr
+ip a
+ip link
+hostname
+hostnamectl
+
+ping -c 4 google.com
+ping localhost
+
+ip route
+
+cat /etc/resolv.conf
+getent hosts google.com
+
+ss -tuln
+ss
+
+netstat -tuln
+```
+
+---
+
+# Key Takeaways
+
+1. Every device on a network has an **IP Address**.
+2. **Private IPs** are used inside local networks, while **Public IPs** are assigned by ISPs for Internet communication.
+3. **DNS** translates domain names into IP addresses.
+4. Your computer sends external traffic to the **Default Gateway**.
+5. `ping` tests connectivity, latency, and packet loss.
+6. `ip route` shows how your computer decides where to send packets.
+7. `ss -tuln` displays services listening for incoming connections.
+8. Every website loads using this sequence:
+
+```
+URL
+ ↓
+DNS Lookup
+ ↓
+IP Address
+ ↓
+TCP Connection
+ ↓
+TLS (HTTPS)
+ ↓
+HTTP Request
+ ↓
+Server Response
+ ↓
+Browser Renders the Website
+```
+
+---
+
+# Day 3 Summary
+
+By the end of Day 3, you can:
+
+* Understand the purpose of IP addresses.
+* Differentiate between Public and Private IPs.
+* Identify network interfaces.
+* Check your hostname.
+* Understand the role of DNS.
+* Find your default gateway.
+* View routing information.
+* Test connectivity with `ping`.
+* Inspect listening ports using `ss`.
+* Explain, at a high level, how a browser loads a website.
