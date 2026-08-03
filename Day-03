@@ -1,0 +1,93 @@
+Part-1
+
+##Goal Today:
+Make your portfolio look better on both desktop and mobile.
+-Media Queries (responsive design)
+-Better spacing & typography
+-Hover effects
+-Simple transitions
+
+**1.Tasks for Today:
+*Improve Desktop Design
+*Increase spacing slightly
+*Make headings clearer
+*Add hover effect on skill/project items
+*Make the contact section cleaner
+
+2.Add Responsive Design (Most Important)
+*Add this at the bottom of your style.css:
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  nav a {
+    margin: 0 10px;
+  }
+
+  main {
+    margin: 20px auto;
+  }
+
+  section {
+    padding: 20px;
+  }
+}
+
+**3.Extra Improvements (Do these)
+*Add transition on links for smooth hover
+*Make skills and projects look like small cards or better lists
+*Improve font sizes for mobile
+
+**Minimum Requirements
+-Portfolio looks good on desktop
+-Portfolio looks good on mobile (use browser DevTools → mobile view)
+-Smooth hover effects
+-Clean spacing
+
+
+
+Day 3 Notes – Responsive CSS:
+1. Media Queries
+Used to make the website look good on different screen sizes.
+
+@media (max-width: 768px) {
+  /* CSS for mobile */
+}
+
+-max-width: 768px → Applies styles when screen is 768px or smaller
+-Most common breakpoint for mobile
+
+2. Changing Flex Direction:
+
+header {
+  flex-direction: column;
+}
+
+-On mobile, header items stack vertically instead of staying in a row.
+
+3. Transition (Smooth Effect):
+transition: color 0.3s ease;
+
+-Makes hover effects smooth instead of sudden
+-0.3s = time
+-ease = speed style
+
+4. Important Responsive Ideas
+-Always test with browser DevTools (mobile view)
+-Use flex-direction: column for mobile layouts
+-Reduce padding/margin on small screens
+-Keep text readable
+
+5. Best Practice
+-Write desktop CSS first → then add media queries for mobile.
+
+#Core Formula So Far
+*HTML → Structure
+*CSS → Design
+*Flexbox → Alignment
+*Media Query → Responsive
