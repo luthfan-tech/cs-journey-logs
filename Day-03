@@ -570,3 +570,74 @@ By the end of Day 3, you can:
 * Test connectivity with `ping`.
 * Inspect listening ports using `ss`.
 * Explain, at a high level, how a browser loads a website.
+
+Part - 03
+
+# Day 3 — Networking, Databases & CS Theory
+
+## Networking Basics
+Networking is how devices communicate with each other.
+
+### Important Terms
+- IP address → identifies a device on a network
+- Port → entry point for a service
+- TCP → reliable, connection-based protocol
+- UDP → faster, connectionless protocol
+- DNS → converts domain names into IP addresses
+- HTTP/HTTPS → protocols used for web communication
+
+### Useful Commands
+- `ping` → checks if a host is reachable
+- `ip addr` → shows IP information
+- `curl` → fetches data from a URL
+- `nslookup` → checks DNS resolution
+
+---
+
+## Databases Basics
+A database is used to store and manage data in an organized way.
+
+### Core SQL Commands
+- `SELECT` → read data
+- `INSERT` → add new data
+- `UPDATE` → change existing data
+- `DELETE` → remove data
+
+### Example
+```sql
+SELECT * FROM users;
+INSERT INTO users (name, age) VALUES ('Asif', 18);
+UPDATE users SET age = 19 WHERE name = 'Asif';
+DELETE FROM users WHERE name = 'Asif';
+```
+
+### Key Reminder
+Use `WHERE` with `UPDATE` and `DELETE` carefully so you don’t change or remove all rows by mistake.
+
+---
+
+## CS Theory
+### Algorithm
+An algorithm is a step-by-step method to solve a problem.
+
+### Data Structure
+A data structure is a way to store and organize data efficiently.
+
+### Common Data Structures
+- Array
+- Linked List
+- Stack
+- Queue
+- Tree
+- Heap
+
+### Simple Example
+- Algorithm: steps to sort a list
+- Data structure: the list itself, stored in a useful way
+
+---
+
+## Day 3 Summary
+- Learned the basics of networking
+- Learned core SQL commands
+- Revisited algorithms and data structures
