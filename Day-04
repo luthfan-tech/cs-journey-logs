@@ -1,0 +1,1021 @@
+##Day 4 Complete Notes:
+
+#Part - 01
+
+**1. Code Cleanliness
+
+-Never write the same selector twice
+-Keep the universal reset (*) only once at the top
+-Clean code is easier to read and maintain
+
+**2. Flexbox Properties Used
+
+-display: flex → Makes the container a flexbox
+-flex-wrap: wrap → Allows items to move to the next line if needed
+-gap: 12px → Adds equal spacing between flex items (better than using margin)
+
+**3. Creating Card Style
+
+'''
+background: #f0f0f0;
+padding: 10px 16px;
+border-radius: 6px;
+'''
+
+-background → Gives the card a background color
+-padding → Adds space inside the card
+-border-radius → Makes the corners rounded
+
+**4. Smooth Hover Effect:
+'''
+transition: 0.3s;
+transform: translateY(-3px);
+'''
+
+-transition: 0.3s → Makes the change smooth (0.3 seconds)
+-transform: translateY(-3px) → Moves the element 3px upward on hover
+
+**5. Why We Use These
+-Flexbox + gap → Clean horizontal layout for skills & projects
+-Cards → Makes the section look modern
+-Transition + Transform → Adds professional hover interaction
+
+**6. Final Responsive Rule
+
+-Always write desktop styles first
+-Then add @media queries for mobile
+-Always test both desktop and mobile view
+
+##Summary Formula (Day 1 to Day 4):
+
+-HTML = Structure
+-CSS = Design
+-Flexbox = Alignment
+-Gap = Spacing between items
+-Border-radius = Rounded corners
+-Transition = Smooth effect
+-Transform = Movement effect
+-Media Query = Mobile responsive
+
+
+  #Part - 02
+
+  # 📘 Day 4 Notes – Networking Fundamentals (OSI, TCP/IP, TCP vs UDP & Common Ports)
+
+## 🎯 Objective
+
+Learn the core networking concepts that every cybersecurity professional must know:
+
+* OSI Model
+* TCP/IP Model
+* TCP vs UDP
+* TCP Three-Way Handshake
+* Common Ports
+* How Data Travels Across the Internet
+
+---
+
+# 1. OSI Model (Open Systems Interconnection)
+
+The **OSI Model** is a conceptual framework that explains how data travels from one device to another over a network.
+
+It has **7 layers**.
+
+```
+7. Application
+6. Presentation
+5. Session
+4. Transport
+3. Network
+2. Data Link
+1. Physical
+```
+
+---
+
+# Layer 7 – Application
+
+### Purpose
+
+Provides network services directly to user applications.
+
+Examples:
+
+* HTTP
+* HTTPS
+* FTP
+* SMTP
+* DNS
+
+Examples of applications:
+
+* Chrome
+* Firefox
+* Outlook
+
+---
+
+# Layer 6 – Presentation
+
+### Purpose
+
+Responsible for:
+
+* Encryption
+* Compression
+* Data formatting
+
+Examples:
+
+* TLS/SSL
+* JPEG
+* PNG
+
+HTTPS uses **TLS encryption** at this layer.
+
+---
+
+# Layer 5 – Session
+
+### Purpose
+
+Responsible for:
+
+* Creating sessions
+* Maintaining sessions
+* Ending sessions
+
+Example:
+
+Keeping a Zoom or Google Meet call connected.
+
+---
+
+# Layer 4 – Transport
+
+### Purpose
+
+Responsible for:
+
+* Reliable communication
+* Error detection
+* Packet ordering
+* Port numbers
+
+Protocols:
+
+* TCP
+* UDP
+
+Important:
+
+**Ports belong to the Transport Layer.**
+
+Examples:
+
+```
+80
+443
+22
+53
+```
+
+---
+
+# Layer 3 – Network
+
+### Purpose
+
+Responsible for:
+
+* IP Addresses
+* Routing packets between networks
+
+Protocols:
+
+* IPv4
+* IPv6
+
+Device:
+
+```
+Router
+```
+
+Routers forward packets using **IP Addresses**.
+
+---
+
+# Layer 2 – Data Link
+
+### Purpose
+
+Responsible for:
+
+* MAC Addresses
+* Frames
+* Communication inside a Local Area Network (LAN)
+
+Device:
+
+```
+Switch
+```
+
+Switches forward data using **MAC Addresses**.
+
+---
+
+# Layer 1 – Physical
+
+### Purpose
+
+Responsible for transmitting raw bits over a physical medium.
+
+Examples:
+
+* Ethernet cable
+* Fiber optic cable
+* Wi-Fi radio signals
+
+Device:
+
+```
+Hub
+```
+
+---
+
+# Easy Memory Trick
+
+Top → Bottom
+
+```
+Application
+Presentation
+Session
+Transport
+Network
+Data Link
+Physical
+```
+
+Mnemonic:
+
+**All People Seem To Need Data Processing**
+
+Bottom → Top
+
+```
+Physical
+Data Link
+Network
+Transport
+Session
+Presentation
+Application
+```
+
+Mnemonic:
+
+**Please Do Not Throw Sausage Pizza Away**
+
+---
+
+# 2. TCP/IP Model
+
+The TCP/IP Model is the model actually used on the Internet.
+
+It has **4 layers**.
+
+```
+Application
+Transport
+Internet
+Network Access
+```
+
+Relationship with the OSI Model:
+
+| OSI Model                            | TCP/IP Model   |
+| ------------------------------------ | -------------- |
+| Application + Presentation + Session | Application    |
+| Transport                            | Transport      |
+| Network                              | Internet       |
+| Data Link + Physical                 | Network Access |
+
+---
+
+# 3. TCP vs UDP
+
+## TCP (Transmission Control Protocol)
+
+TCP is:
+
+* Reliable
+* Connection-oriented
+* Guarantees delivery
+* Maintains packet order
+* Retransmits lost packets
+
+Examples:
+
+* HTTP
+* HTTPS
+* SSH
+* FTP
+
+Think of TCP as:
+
+> A courier service that makes sure every package arrives safely.
+
+---
+
+## UDP (User Datagram Protocol)
+
+UDP is:
+
+* Fast
+* Connectionless
+* No guarantee of delivery
+* No packet ordering
+* No retransmission
+
+Examples:
+
+* Video Streaming
+* Voice Calls (VoIP)
+* Online Gaming
+* DNS Queries (commonly)
+
+Think of UDP as:
+
+> Throwing newspapers—speed matters more than perfection.
+
+---
+
+# TCP vs UDP Comparison
+
+| TCP                 | UDP                    |
+| ------------------- | ---------------------- |
+| Reliable            | Fast                   |
+| Connection-Oriented | Connectionless         |
+| Guarantees Delivery | No Guarantee           |
+| Packet Ordering     | No Ordering            |
+| Error Checking      | Minimal Error Recovery |
+| Slower              | Faster                 |
+
+---
+
+# 4. TCP Three-Way Handshake
+
+Before data can be exchanged over TCP, both devices establish a connection.
+
+The process is called the **Three-Way Handshake**.
+
+```
+Client                     Server
+
+SYN ---------------------->
+
+      <------------------- SYN-ACK
+
+ACK ---------------------->
+
+Connection Established
+```
+
+### Meaning
+
+### SYN
+
+Synchronize.
+
+The client asks:
+
+> "Can we communicate?"
+
+---
+
+### SYN-ACK
+
+Synchronize + Acknowledge.
+
+The server replies:
+
+> "Yes, I received your request."
+
+---
+
+### ACK
+
+Acknowledge.
+
+The client confirms:
+
+> "Great, let's begin."
+
+Now both devices can exchange data.
+
+---
+
+# 5. Common Ports
+
+|  Port | Protocol | Purpose                    |
+| ----: | -------- | -------------------------- |
+| 20/21 | FTP      | File Transfer              |
+|    22 | SSH      | Secure Remote Login        |
+|    23 | Telnet   | Remote Login (Unencrypted) |
+|    25 | SMTP     | Sending Email              |
+|    53 | DNS      | Domain Name Resolution     |
+| 67/68 | DHCP     | Automatic IP Assignment    |
+|    80 | HTTP     | Web Traffic                |
+|   110 | POP3     | Receive Email              |
+|   143 | IMAP     | Receive Email              |
+|   443 | HTTPS    | Secure Web Traffic         |
+|  3306 | MySQL    | Database Server            |
+|  3389 | RDP      | Windows Remote Desktop     |
+
+---
+
+# Easy Port Groups
+
+## Web
+
+```
+80
+443
+```
+
+---
+
+## Remote Access
+
+```
+22
+23
+3389
+```
+
+---
+
+## Email
+
+```
+25
+110
+143
+```
+
+---
+
+## Network Services
+
+```
+53
+67
+68
+```
+
+---
+
+## Database
+
+```
+3306
+```
+
+---
+
+# 6. Devices and Their OSI Layers
+
+| Device | Layer   | Uses                                |
+| ------ | ------- | ----------------------------------- |
+| Hub    | Layer 1 | Sends data to all connected devices |
+| Switch | Layer 2 | Uses MAC Addresses                  |
+| Router | Layer 3 | Uses IP Addresses                   |
+
+Memory Tip:
+
+```
+Hub → Physical
+
+Switch → MAC
+
+Router → IP
+```
+
+---
+
+# 7. HTTP vs HTTPS
+
+## HTTP
+
+* HyperText Transfer Protocol
+* Data is **not encrypted**
+* Uses Port **80**
+
+---
+
+## HTTPS
+
+* HyperText Transfer Protocol Secure
+* Uses **TLS Encryption**
+* Protects passwords, cookies and other sensitive information
+* Uses Port **443**
+
+Think of it like this:
+
+```
+HTTP
+↓
+
+TCP
+```
+
+```
+HTTPS
+↓
+
+HTTP
+
+↓
+
+TLS
+
+↓
+
+TCP
+```
+
+---
+
+# 8. How Data Travels When You Open a Website
+
+Example:
+
+```
+https://google.com
+```
+
+Flow:
+
+```
+Browser
+
+↓
+
+DNS Lookup
+
+↓
+
+Google's IP Address
+
+↓
+
+TCP Three-Way Handshake
+
+↓
+
+TLS Encryption
+
+↓
+
+HTTP Request
+
+↓
+
+Router
+
+↓
+
+Internet
+
+↓
+
+Google Server
+
+↓
+
+HTTP Response
+
+↓
+
+Browser Displays Website
+```
+
+---
+
+# Important Definitions
+
+### OSI Model
+
+A 7-layer model explaining network communication.
+
+---
+
+### TCP/IP Model
+
+The real-world networking model used on the Internet.
+
+---
+
+### TCP
+
+Reliable protocol that guarantees packet delivery.
+
+---
+
+### UDP
+
+Fast protocol without delivery guarantees.
+
+---
+
+### Port
+
+A logical communication endpoint used by applications and services.
+
+Example:
+
+```
+80 → HTTP
+
+443 → HTTPS
+```
+
+---
+
+### Router
+
+A Layer 3 device that forwards packets using **IP Addresses**.
+
+---
+
+### Switch
+
+A Layer 2 device that forwards frames using **MAC Addresses**.
+
+---
+
+### Hub
+
+A Layer 1 device that broadcasts incoming data to all connected devices.
+
+---
+
+# Commands Learned Today
+
+## Show IP Address
+
+```bash
+ip a
+```
+
+Purpose:
+Displays network interfaces and IP addresses.
+
+---
+
+## Show Routing Table
+
+```bash
+ip route
+```
+
+Purpose:
+Displays routing information and the default gateway.
+
+---
+
+## Test Connectivity
+
+```bash
+ping -c 4 google.com
+```
+
+Purpose:
+Tests connectivity, latency and packet loss.
+
+---
+
+## Show Listening Ports
+
+```bash
+ss -tuln
+```
+
+Flags:
+
+* t → TCP
+* u → UDP
+* l → Listening
+* n → Numeric Output
+
+---
+
+## Show Active Connections
+
+```bash
+ss -tun
+```
+
+Purpose:
+Displays active TCP and UDP network connections.
+
+---
+
+# Commands to Memorize
+
+```bash
+ip a
+
+ip route
+
+ping -c 4 google.com
+
+ss -tuln
+
+ss -tun
+```
+
+---
+
+# Quick Revision
+
+## OSI Layers
+
+```
+Application
+Presentation
+Session
+Transport
+Network
+Data Link
+Physical
+```
+
+---
+
+## TCP/IP Layers
+
+```
+Application
+Transport
+Internet
+Network Access
+```
+
+---
+
+## TCP Handshake
+
+```
+SYN
+
+↓
+
+SYN-ACK
+
+↓
+
+ACK
+```
+
+---
+
+## Common Ports
+
+```
+20/21 → FTP
+
+22 → SSH
+
+23 → Telnet
+
+25 → SMTP
+
+53 → DNS
+
+67/68 → DHCP
+
+80 → HTTP
+
+110 → POP3
+
+143 → IMAP
+
+443 → HTTPS
+
+3306 → MySQL
+
+3389 → RDP
+```
+
+---
+
+# Key Takeaways
+
+1. The **OSI Model** explains network communication in **7 layers**.
+2. The **TCP/IP Model** is the practical networking model used on the Internet.
+3. **TCP** is reliable and guarantees packet delivery.
+4. **UDP** is faster but does not guarantee delivery.
+5. TCP establishes a connection using the **Three-Way Handshake (SYN → SYN-ACK → ACK)**.
+6. **Ports** identify services and belong to the **Transport Layer**.
+7. **Routers** use IP addresses (Layer 3), while **Switches** use MAC addresses (Layer 2).
+8. **HTTPS** secures HTTP by using **TLS encryption** over TCP.
+9. When you open a website, the typical flow is:
+
+```
+Browser
+↓
+DNS Lookup
+↓
+IP Address
+↓
+TCP Handshake
+↓
+TLS (HTTPS)
+↓
+HTTP Request
+↓
+Server Response
+↓
+Browser Renders Website
+```
+
+---
+
+# Day 4 Summary
+
+By the end of Day 4, you can:
+
+* Explain all 7 OSI layers.
+* Explain the 4 TCP/IP layers.
+* Compare TCP and UDP.
+* Describe the TCP Three-Way Handshake.
+* Identify common networking ports and their services.
+* Distinguish the roles of hubs, switches, and routers.
+* Explain the difference between HTTP and HTTPS.
+* Describe how a browser loads a website from the moment you press Enter.
+
+
+  #Part - 03
+
+  # Day 4 — JavaScript Basics
+
+## 1. What is JavaScript?
+JavaScript is the programming language that makes websites interactive.
+
+- HTML = structure
+- CSS = style
+- JavaScript = behavior
+
+---
+
+## 2. Variables
+Variables store values.
+
+```js
+let name = "Asif";
+const age = 18;
+var city = "Bangalore";
+```
+
+### Quick note
+- `let` → can change
+- `const` → cannot be reassigned
+- `var` → older way, avoid unless needed
+
+---
+
+## 3. Data Types
+Common JavaScript data types:
+
+- String
+- Number
+- Boolean
+- Array
+- Object
+- Null
+- Undefined
+
+Example:
+
+```js
+let username = "Asif";
+let marks = 95;
+let isActive = true;
+```
+
+---
+
+## 4. Arrays
+Arrays store multiple values in one variable.
+
+```js
+let fruits = ["apple", "banana", "mango"];
+console.log(fruits);
+```
+
+Useful array methods:
+- `push()`
+- `pop()`
+- `splice()`
+- `map()`
+- `filter()`
+- `forEach()`
+
+---
+
+## 5. Objects
+Objects store data as key-value pairs.
+
+```js
+let student = {
+  name: "Asif",
+  age: 18,
+  course: "CSE"
+};
+
+console.log(student.name);
+```
+
+---
+
+## 6. Functions
+Functions are reusable blocks of code.
+
+```js
+function greet() {
+  console.log("Hello!");
+}
+
+greet();
+```
+
+Example with parameter:
+
+```js
+function greetUser(name) {
+  console.log("Hello " + name);
+}
+
+greetUser("Asif");
+```
+
+---
+
+## 7. DOM Basics
+DOM means Document Object Model.
+
+JavaScript can use the DOM to:
+- read content,
+- change text,
+- update styles,
+- handle user actions.
+
+Example:
+
+```js
+let heading = document.querySelector("h1");
+heading.textContent = "Welcome";
+```
+
+---
+
+## 8. Event Listeners
+Event listeners make websites interactive.
+
+```js
+button.addEventListener("click", function() {
+  alert("Button clicked!");
+});
+```
+
+Common events:
+- click
+- input
+- submit
+- mouseover
+
+---
+
+## 9. Core Idea
+JavaScript helps websites respond to users.
+
+Example:
+- click button → show message
+- type text → update screen
+- submit form → run validation
+
+---
+
+## 10. Day 4 Summary
+Today I learned:
+- JavaScript basics
+- variables and data types
+- arrays and objects
+- functions
+- DOM basics
+- event listeners
