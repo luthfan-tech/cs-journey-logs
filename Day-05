@@ -1,1 +1,51 @@
+**Part - 01
 
+**Day 5 Notes – Introduction to JavaScript
+
+1.What is JavaScript?
+JavaScript makes websites interactive.
+-HTML = Structure
+-CSS = Design
+-JavaScript = Behavior
+
+2.How to link JavaScript
+'''
+<script src="script.js"></script>
+'''
+-Always place it just before the closing </body> tag.
+
+'''
+console.log()
+console.log("Hello");
+'''
+-Used to print messages in the Browser Console.
+-Does not show anything on the webpage.
+-Very useful for testing and debugging.
+
+3.Variables:
+a.let
+'''
+let name = "Lutfan";
+'''
+-Can be changed later.
+
+b.const
+'''
+const role = "Developer";
+'''
+-Cannot be changed later (constant).
+
+4.Data Types (Basic)
+-String → "Hello" (text)
+-Number → 25
+-Boolean → true / false
+-Important Rule
+console.log() is only for the developer (you).
+Normal users will never see it.
+
+5.Current Formula:
+-HTML → Structure
+-CSS → Design
+-JavaScript → Behavior
+-console.log → Testing tool
+-let / const → Variables
