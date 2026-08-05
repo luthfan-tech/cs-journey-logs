@@ -49,3 +49,348 @@ Normal users will never see it.
 -JavaScript → Behavior
 -console.log → Testing tool
 -let / const → Variables
+
+Part- 02
+
+# 📘 Day 5 Notes – Web Fundamentals
+
+## 🎯 Objective
+
+Learn how websites work and understand the core concepts behind web communication.
+
+Topics Covered:
+
+* Client & Server
+* URL Structure
+* HTTP & HTTPS
+* HTTP Methods
+* HTTP Requests & Responses
+* Status Codes
+* Headers
+* Cookies
+* Sessions
+
+---
+
+# 1. Client & Server
+
+## Client
+
+A **client** is the application or device that requests information.
+
+Examples:
+
+* Chrome
+* Firefox
+* Edge
+* Mobile Browser
+
+---
+
+## Server
+
+A **server** stores websites and responds to requests from clients.
+
+Examples:
+
+* Apache
+* Nginx
+* IIS
+
+---
+
+# 2. How a Website Loads
+
+```text
+Browser
+    ↓
+DNS Lookup
+    ↓
+IP Address
+    ↓
+TCP Three-Way Handshake
+    ↓
+TLS (HTTPS)
+    ↓
+HTTP Request
+    ↓
+Web Server
+    ↓
+HTTP Response
+    ↓
+Browser Renders Website
+```
+
+---
+
+# 3. URL (Uniform Resource Locator)
+
+Example:
+
+```text
+https://www.example.com/login?user=admin
+```
+
+Components:
+
+* **Protocol:** `https://`
+* **Domain:** `www.example.com`
+* **Path:** `/login`
+* **Query Parameter:** `?user=admin`
+
+General Structure:
+
+```text
+Protocol://Domain/Path?Parameter=Value
+```
+
+---
+
+# 4. HTTP
+
+**HTTP (HyperText Transfer Protocol)** is used for communication between a browser and a web server.
+
+* Uses **Port 80**
+* Data is sent in plain text
+
+---
+
+# 5. HTTPS
+
+**HTTPS = HTTP + TLS Encryption**
+
+* Uses **Port 443**
+* Encrypts data
+* Protects passwords, cookies, and sensitive information
+
+---
+
+# 6. HTTP Methods
+
+| Method | Purpose              |
+| ------ | -------------------- |
+| GET    | Retrieve (Read) data |
+| POST   | Submit (Create) data |
+| PUT    | Update existing data |
+| DELETE | Remove data          |
+
+Memory:
+
+```text
+GET     → Read
+POST    → Create / Submit
+PUT     → Update
+DELETE  → Delete
+```
+
+---
+
+# 7. HTTP Request
+
+A request sent from the browser to the server.
+
+Example:
+
+```http
+GET /index.html HTTP/1.1
+Host: example.com
+User-Agent: Firefox
+Accept: text/html
+```
+
+### Request Line
+
+* Method
+* Path
+* HTTP Version
+
+### Common Request Headers
+
+* Host
+* User-Agent
+* Accept
+* Cookie
+* Authorization
+* Referer
+
+---
+
+# 8. HTTP Response
+
+A response sent from the server back to the browser.
+
+Example:
+
+```http
+HTTP/1.1 200 OK
+
+Content-Type: text/html
+
+<html>...</html>
+```
+
+Contains:
+
+* Status Code
+* Response Headers
+* Body (Content)
+
+### Common Response Headers
+
+* Content-Type
+* Content-Length
+* Server
+* Set-Cookie
+
+---
+
+# 9. HTTP Status Codes
+
+| Code | Meaning                                   |
+| ---: | ----------------------------------------- |
+|  200 | OK (Success)                              |
+|  301 | Permanent Redirect                        |
+|  302 | Temporary Redirect                        |
+|  400 | Bad Request                               |
+|  401 | Unauthorized (Authentication required)    |
+|  403 | Forbidden (Authenticated but not allowed) |
+|  404 | Not Found                                 |
+|  500 | Internal Server Error                     |
+
+Memory Tips:
+
+* **400** → Bad request sent by the client.
+* **401** → Log in first.
+* **403** → Logged in, but access denied.
+* **404** → Page not found.
+* **500** → Server-side problem.
+
+---
+
+# 10. Headers
+
+Headers carry extra information between the client and server.
+
+### Request Headers
+
+* Host
+* User-Agent
+* Accept
+* Cookie
+* Authorization
+* Referer
+
+### Response Headers
+
+* Content-Type
+* Content-Length
+* Server
+* Set-Cookie
+
+---
+
+# 11. Cookies
+
+Cookies are **small pieces of data stored in the browser**.
+
+Uses:
+
+* Keep users logged in
+* Store preferences
+* Remember shopping carts
+
+Example:
+
+```text
+Cookie: sessionid=abc123
+```
+
+---
+
+# 12. Sessions
+
+Sessions are **stored on the server**.
+
+Typical flow:
+
+```text
+Login
+   ↓
+Server Creates Session
+   ↓
+Server Sends Session Cookie
+   ↓
+Browser Stores Cookie
+   ↓
+Browser Sends Cookie with Every Request
+   ↓
+Server Recognizes the User
+```
+
+---
+
+# Cookie vs Session
+
+| Cookie                  | Session           |
+| ----------------------- | ----------------- |
+| Stored in browser       | Stored on server  |
+| Sent with every request | Tracks user state |
+
+---
+
+# Browser Developer Tools
+
+Open using:
+
+```text
+F12
+```
+
+or
+
+```text
+Ctrl + Shift + I
+```
+
+Useful tabs:
+
+* Elements
+* Network
+* Console
+* Application
+* Storage
+
+---
+
+# Commands & Tools to Remember
+
+Developer Tools:
+
+* F12
+* Ctrl + Shift + I
+
+Inspect:
+
+* HTTP Requests
+* HTTP Responses
+* Headers
+* Cookies
+* Status Codes
+
+---
+
+# Key Takeaways
+
+1. A browser (client) sends requests to a web server.
+2. HTTPS is HTTP protected with TLS encryption.
+3. GET retrieves data; POST submits data; PUT updates; DELETE removes.
+4. Request headers are sent by the browser; response headers are sent by the server.
+5. Cookies are stored in the browser; sessions are stored on the server.
+6. Common status codes:
+
+   * 200 → Success
+   * 401 → Authentication required
+   * 403 → Access denied
+   * 404 → Not found
+   * 500 → Server error
+7. Browser Developer Tools are essential for analyzing web applications.
