@@ -45,7 +45,6 @@ This repo tracks my learning journey as a first-year B.Tech CSE student, focused
 - Basic SQL: SELECT, INSERT, UPDATE, DELETE
 - Simple schema design (users, posts, etc.)
 
-
 ---
 
 ## 📌 Daily Rules
@@ -56,10 +55,8 @@ This repo tracks my learning journey as a first-year B.Tech CSE student, focused
   - For each day, write a short summary in `logs/`.
 - **Small, consistent steps**
   - It’s fine if some days are short; consistency matters more than grind.
-
-```
-
----
+    
+===
 
 ## 🧭 Long-Term Intent
 
