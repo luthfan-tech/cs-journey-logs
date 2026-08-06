@@ -30,3 +30,157 @@ element.textContent = "New text";
 
 Key Point:
 -JavaScript can select HTML elements and change them.
+
+Part - 02
+
+# 📘 Day 6 Notes (Important Topics Only)
+
+## HTML (HyperText Markup Language)
+
+* Defines the **structure** of a webpage.
+* HTML is **not** responsible for styling (CSS) or interactivity (JavaScript).
+
+---
+
+## Basic HTML Structure
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+```
+
+* `<head>` → Metadata (title, CSS, scripts, meta tags)
+* `<body>` → Everything visible on the webpage
+
+---
+
+## Important HTML Tags
+
+| Tag             | Purpose          |
+| --------------- | ---------------- |
+| `<h1>`          | Main heading     |
+| `<p>`           | Paragraph        |
+| `<a>`           | Hyperlink        |
+| `<img>`         | Image            |
+| `<div>`         | Block container  |
+| `<span>`        | Inline container |
+| `<form>`        | User input form  |
+| `<input>`       | Input field      |
+| `<button>`      | Button           |
+| `<ul>` / `<ol>` | Lists            |
+| `<li>`          | List item        |
+
+---
+
+## Important Attributes
+
+| Attribute     | Purpose                       |
+| ------------- | ----------------------------- |
+| `href`        | Link destination              |
+| `src`         | Image/resource location       |
+| `alt`         | Alternative text              |
+| `id`          | Unique identifier             |
+| `class`       | Reusable identifier           |
+| `type`        | Input type                    |
+| `name`        | Parameter name sent to server |
+| `placeholder` | Hint text                     |
+| `value`       | Default/submitted value       |
+
+---
+
+## ID vs Class
+
+```text
+ID
+↓
+Unique (One element)
+
+Class
+↓
+Reusable (Multiple elements)
+```
+
+---
+
+## Common Input Types
+
+```text
+text
+password
+email
+number
+checkbox
+radio
+submit
+```
+
+---
+
+# DOM (Document Object Model)
+
+The browser converts HTML into a **tree structure** called the DOM.
+
+JavaScript interacts with the DOM to:
+
+* Read elements
+* Modify content
+* Add or remove elements
+* Respond to user actions
+
+---
+
+# Browser Developer Tools
+
+Open:
+
+```text
+F12
+```
+
+or
+
+```text
+Ctrl + Shift + I
+```
+
+Most useful tabs for security:
+
+* **Elements** → Inspect HTML & DOM
+* **Network** → HTTP requests/responses
+* **Console** → JavaScript output
+* **Application/Storage** → Cookies, Local Storage, Session Storage
+
+---
+
+# Pentesting Perspective
+
+When inspecting a webpage, always look for:
+
+* Hidden input fields
+* Forms (`<form>`)
+* Input names (`name=""`)
+* IDs and classes
+* Links (`href`)
+* External JavaScript files
+* Comments in HTML
+* Login forms
+* File upload fields
+* API calls in the Network tab
+
+---
+
+# Key Takeaways
+
+1. HTML defines webpage structure.
+2. `<head>` stores metadata; `<body>` contains visible content.
+3. `id` is unique, while `class` is reusable.
+4. The DOM is the browser's representation of the webpage.
+5. Browser DevTools are one of the most important tools for web application testing.
+6. In pentesting, HTML is valuable because it reveals forms, inputs, parameters, links, hidden fields, and other clues about how the application works.
