@@ -1,1 +1,30 @@
+##Day 6 Notes (Important Only)
 
+**1. Function:
+'''
+function greet() {
+  console.log("Hello");
+}
+greet();
+'''
+-Function = reusable block of code
+-Must call it to run
+
+**2. DOM:
+DOM = Document Object Model (the webpage structure)
+
+**3. querySelector
+'''
+document.querySelector("#about p")
+'''
+-Selects an element from the page
+-#about means id="about"
+
+**4. textContent
+'''
+element.textContent = "New text";
+'''
+-Changes the text of an element
+
+Key Point:
+-JavaScript can select HTML elements and change them.
