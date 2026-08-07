@@ -1,1 +1,404 @@
+Part - 01
 
+##Day 7 Notes (Important Only)
+**1. Events:
+-Events are actions that happen on the webpage (click, scroll, keypress, etc.)
+
+**2. Click Event:
+'''
+element.addEventListener("click", function() {
+  // code here
+});
+'''
+-Waits for the user to click
+-Then runs the code inside
+
+**3. Important Rules
+-ID must be unique (only one element with the same id)
+-Never declare the same const variable twice
+-querySelector selects the first matching element
+
+##Key Point:
+addEventListener is the main way to make buttons interactive.
+
+Part - 02
+
+# 📘 Day 7 — Web Security & Browser DevTools Notes
+
+## 1. Client-Side vs Server-Side
+
+### Client-Side
+
+Runs in the user's browser.
+
+Examples:
+
+* HTML
+* CSS
+* JavaScript
+
+### Server-Side
+
+Runs on the web server.
+
+Examples:
+
+* Node.js
+* Python
+* PHP
+* Java
+
+### Security Principle
+
+**Never rely on client-side validation for security.**
+
+Client-side code can be inspected and modified by the user.
+
+Security-critical validation should happen on the **server**.
+
+---
+
+# 2. DOM — Document Object Model
+
+The browser converts HTML into a tree-like structure called the **DOM**.
+
+JavaScript can interact with the DOM to:
+
+* Read elements
+* Modify elements
+* Add/remove elements
+* Respond to events
+
+Security relevance:
+
+```text
+User Input
+    ↓
+JavaScript
+    ↓
+DOM
+    ↓
+Webpage
+```
+
+Unsafe handling of untrusted input can lead to vulnerabilities such as **XSS**.
+
+---
+
+# 3. DOM Manipulation
+
+Safer for inserting plain text:
+
+```javascript
+element.textContent = userInput;
+```
+
+Potentially security-sensitive:
+
+```javascript
+element.innerHTML = userInput;
+```
+
+`innerHTML` interprets input as HTML, so inserting untrusted data into it can create security risks depending on the context.
+
+---
+
+# 4. Browser Storage
+
+DevTools:
+
+```text
+F12 → Application
+```
+
+## Cookies
+
+Small pieces of data associated with a website.
+
+Can be used for:
+
+* Sessions
+* Preferences
+* Other application state
+
+Cookies may be sent with HTTP requests.
+
+---
+
+## Local Storage
+
+Browser-side storage that persists across page reloads.
+
+```javascript
+localStorage.getItem("key");
+```
+
+---
+
+## Session Storage
+
+Browser-side storage associated with the current session/tab.
+
+```javascript
+sessionStorage.getItem("key");
+```
+
+---
+
+# 5. Client-Side Storage Security
+
+Data stored in the browser should **not automatically be considered secure**.
+
+JavaScript running in the page may be able to access certain browser storage.
+
+This is particularly important when studying:
+
+* XSS
+* Authentication
+* Session security
+
+---
+
+# 6. JavaScript → Server Communication
+
+Modern web applications commonly use JavaScript to communicate with APIs.
+
+Example:
+
+```javascript
+fetch("/api/profile");
+```
+
+Typical flow:
+
+```text
+Browser
+   ↓
+HTTP Request
+   ↓
+API / Server
+   ↓
+Response
+   ↓
+JavaScript
+   ↓
+Webpage
+```
+
+---
+
+# 7. Fetch/XHR
+
+The **Fetch/XHR** section of the Network tab can show requests made by JavaScript.
+
+These requests may contain:
+
+* API endpoints
+* HTTP methods
+* Parameters
+* Headers
+* Cookies
+* JSON data
+* Responses
+
+Not every website makes Fetch/XHR requests.
+
+---
+
+# 8. Browser DevTools
+
+Open:
+
+```text
+F12
+```
+
+or:
+
+```text
+Ctrl + Shift + I
+```
+
+Important tabs:
+
+| Tab         | Security Use            |
+| ----------- | ----------------------- |
+| Elements    | Inspect HTML/DOM        |
+| Network     | Inspect HTTP traffic    |
+| Console     | Inspect JavaScript      |
+| Application | Inspect cookies/storage |
+
+---
+
+# 9. Network Tab
+
+When inspecting a request, look at:
+
+```text
+Request URL
+Request Method
+Status Code
+Request Headers
+Response Headers
+Response
+```
+
+Example:
+
+```text
+Request URL: https://example.com/
+Request Method: GET
+Status Code: 200
+```
+
+---
+
+# 10. HTTP Status — 304 Not Modified
+
+`304 Not Modified` means the requested resource hasn't changed since the cached version.
+
+The browser can use its cached copy.
+
+```text
+200 → Resource sent normally
+304 → Use cached version
+```
+
+`304` is **not an error**.
+
+---
+
+# 11. Content-Type
+
+`Content-Type` tells the browser what type of content is being returned.
+
+Examples:
+
+```text
+text/html
+text/css
+text/javascript
+application/json
+image/png
+```
+
+Examples:
+
+```text
+HTML → text/html
+CSS → text/css
+JavaScript → text/javascript
+JSON → application/json
+```
+
+---
+
+# 12. CORS
+
+**CORS = Cross-Origin Resource Sharing**
+
+It controls how browsers handle certain requests between different origins.
+
+Example response header:
+
+```http
+Access-Control-Allow-Origin: *
+```
+
+`*` generally means the resource is allowed for requests from any origin, subject to the browser's CORS rules and the type of request/resource.
+
+### Important Pentesting Principle
+
+Seeing:
+
+```http
+Access-Control-Allow-Origin: *
+```
+
+does **NOT automatically mean a vulnerability exists**.
+
+You must determine:
+
+* What resource is being accessed?
+* Is it sensitive?
+* Are credentials involved?
+* What origin is making the request?
+* What does the server return?
+
+---
+
+# 13. Attack Surface
+
+The **attack surface** is the collection of exposed functionality, inputs, endpoints, and interfaces that could potentially affect the application's security.
+
+Examples:
+
+```text
+Login
+Registration
+Search
+Forms
+URL parameters
+File uploads
+API endpoints
+Cookies
+HTTP headers
+JSON data
+```
+
+Pentesting mindset:
+
+```text
+What does the application expose?
+        ↓
+What inputs does it accept?
+        ↓
+How does it process them?
+        ↓
+What security assumptions does it make?
+        ↓
+Could those assumptions be abused?
+```
+
+---
+
+# 14. Pentesting Mindset
+
+Don't assume:
+
+```text
+"Weird header = vulnerability"
+```
+
+Instead:
+
+```text
+Identify
+   ↓
+Understand
+   ↓
+Test safely
+   ↓
+Determine impact
+   ↓
+Confirm vulnerability
+```
+
+A finding only becomes meaningful when you understand its **security impact**.
+
+---
+
+# 🔑 Day 7 Key Takeaways
+
+* Client-side code can be inspected and modified.
+* Security-critical validation belongs on the server.
+* The DOM is the browser's representation of a webpage.
+* `innerHTML` can be security-sensitive when handling untrusted input.
+* Cookies, Local Storage, and Session Storage are browser-side storage mechanisms.
+* DevTools Network tab lets you inspect HTTP communication.
+* Fetch/XHR commonly reveals API communication.
+* `304` means the cached resource can be reused.
+* `Content-Type` identifies the type of returned content.
+* CORS controls certain cross-origin browser requests.
+* `Access-Control-Allow-Origin: *` is not automatically a vulnerability.
+* Attack-surface analysis is a core pentesting skill.
