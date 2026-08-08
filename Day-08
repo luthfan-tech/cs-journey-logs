@@ -1,3 +1,5 @@
+Part - 01
+
 ##Day 8 Notes (Important Only)
 
 **1. Array:
@@ -40,3 +42,181 @@ Key Point:
 -Arrays = list of items
 -Objects = detailed information
 -Loops = go through each item
+
+Part - 02
+
+# Day 08 — HTTP Quick Notes
+
+## HTTP Requests
+
+**Request:**
+
+```text
+Client → Server
+```
+
+**Response:**
+
+```text
+Server → Client
+```
+
+Request contains:
+
+* Method
+* URL
+* Headers
+* Cookies
+* Parameters
+* Body
+
+Response contains:
+
+* Status code
+* Headers
+* Body
+
+---
+
+## GET vs POST
+
+```text
+GET  → parameters commonly in URL
+POST → data commonly in request body
+```
+
+**POST is NOT automatically more secure than GET.**
+
+---
+
+## Query Parameters
+
+Example:
+
+```text
+/search?test=hello
+```
+
+```text
+Parameter = test
+Value     = hello
+```
+
+Multiple:
+
+```text
+?page=2&category=phone
+```
+
+---
+
+## HTTP/2 Pseudo-Headers
+
+```text
+:method    → HTTP method
+:path      → path + query
+:scheme    → HTTP/HTTPS
+:authority → host/server
+```
+
+---
+
+## JSON
+
+Common API data format:
+
+```json
+{
+  "username": "test",
+  "age": 20
+}
+```
+
+Content-Type:
+
+```text
+application/json
+```
+
+---
+
+## API Endpoint
+
+Example:
+
+```text
+/api/login
+/api/users
+/api/products
+```
+
+Used for communication between application and server.
+
+---
+
+## Cookies
+
+Can appear in requests:
+
+```http
+Cookie: session=abc123
+```
+
+Commonly used for sessions/authentication.
+
+---
+
+## User-Controlled Input
+
+Applications can receive input through:
+
+```text
+URL parameters
+Forms
+JSON
+Cookies
+Headers
+API requests
+```
+
+Pentesting question:
+
+> **How does the application handle this input?**
+
+---
+
+## Important
+
+```text
+GET ≠ insecure
+POST ≠ secure
+```
+
+Security depends on:
+
+* HTTPS
+* Authentication
+* Authorization
+* Input validation
+* Server-side processing
+
+---
+
+## Day 8 Practical Lessons
+
+* `304` → cached resource can be reused.
+* `chrome-extension://` → browser extension request, not necessarily the website.
+* Always identify **who generated a request**.
+* Static websites may have no forms or Fetch/XHR APIs.
+
+### Core Workflow
+
+```text
+Find input
+   ↓
+Observe request
+   ↓
+Understand processing
+   ↓
+Assess security impact
+```
