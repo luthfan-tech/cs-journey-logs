@@ -1,1 +1,42 @@
+##Day 8 Notes (Important Only)
 
+**1. Array:
+'''
+const skills = ["Python", "SQL", "HTML"];
+'''
+-Stores multiple values
+-skills[0] → first item
+-skills.length → total items
+
+**2. Object:
+'''
+const student = {
+  name: "Lutfan",
+  role: "Developer"
+};
+'''
+-Stores related data with keys
+-Access with student.name
+
+**3. Loops
+Normal loop:
+'''
+for (let i = 0; i < skills.length; i++) {
+  console.log(skills[i]);
+}
+'''
+Easier loop:
+'''
+for (let skill of skills) {
+  console.log(skill);
+}
+'''
+
+**4. Bonus:
+document.createElement("li") → creates new element
+appendChild() → adds it to the page
+
+Key Point:
+-Arrays = list of items
+-Objects = detailed information
+-Loops = go through each item
