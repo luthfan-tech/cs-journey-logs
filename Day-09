@@ -1,1 +1,32 @@
+**Day 9 Notes (Important Only)
+1. Array Methods:
+push() → Adds item at the end:
+'''
+skills.push("Git");
+'''
+-pop() → Removes the last item
+'''
+skills.pop();
+'''
 
+2. Array of Objects:
+'''
+const projects = [
+  { title: "Portfolio", tech: "HTML, CSS" },
+  { title: "Todo App", tech: "JavaScript" }
+];
+'''
+-Very common structure in real projects.
+
+3. Loop through Array of Objects:
+'''
+for (let project of projects) {
+  console.log(project.title);
+}
+'''
+
+Key Point:
+-Array = list
+-Object = details
+-Array of Objects = list of detailed items
+-push / pop = add / remove items
