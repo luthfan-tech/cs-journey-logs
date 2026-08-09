@@ -1,3 +1,5 @@
+Part - 01
+
 **Day 9 Notes (Important Only)
 1. Array Methods:
 push() → Adds item at the end:
@@ -30,3 +32,81 @@ Key Point:
 -Object = details
 -Array of Objects = list of detailed items
 -push / pop = add / remove items
+
+Part - 02
+
+# Day 09 — Burp Suite Quick Notes
+
+## Burp Proxy
+
+Burp sits between browser and server:
+
+```text
+Browser → Burp → Server
+```
+
+Allows you to **inspect, intercept, modify, forward, or drop** HTTP traffic.
+
+## Proxy Listener
+
+```text
+127.0.0.1:8080
+```
+
+* `127.0.0.1` → localhost
+* `8080` → Burp proxy listener port
+
+## Intercept
+
+```text
+Intercept → Inspect → Forward / Drop
+```
+
+* **Forward** → sends request to server
+* **Drop** → cancels request
+
+## HTTP History
+
+```text
+Proxy → HTTP history
+```
+
+Shows requests that passed through Burp.
+
+Useful information:
+
+* Method
+* URL/path
+* Host
+* Headers
+* Parameters
+* Cookies
+* Body
+* Status
+
+## Repeater
+
+Used to:
+
+> **Modify and resend the same HTTP request repeatedly.**
+
+Very important for later vulnerability testing.
+
+## Pentesting Mindset
+
+Burp doesn't automatically find vulnerabilities.
+
+It gives you **visibility + control over HTTP traffic**.
+
+```text
+Observe → Understand → Modify → Test → Assess impact
+```
+
+### Safety
+
+Only test:
+
+* Your own applications
+* Authorized targets
+* PortSwigger labs
+* TryHackMe labs
