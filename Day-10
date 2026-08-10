@@ -1,1 +1,69 @@
+Part - 01
 
+Part - 01
+
+##Day 10 Notes – Creating Elements with JavaScript
+
+createElement
+const li = document.createElement("li");
+Creates a new HTML element.
+textContent
+li.textContent = "Python";
+Adds text inside the element.
+appendChild
+skillList.appendChild(li);
+Adds the new element to the page.
+innerHTML = ""
+skillList.innerHTML = "";
+Clears all old content inside an element.
+Full Pattern
+const list = document.querySelector("#skills ul");
+list.innerHTML = "";
+
+for (let skill of skills) {
+const li = document.createElement("li");
+li.textContent = skill;
+list.appendChild(li);
+}
+Key Point:
+JavaScript can create new HTML elements and add them to the page dynamically.
+
+
+Example;
+script.js:
+'''
+// Skills Array
+const skills = ["Python", "SQL", "HTML", "CSS", "JavaScript", "Git", "Networking"];
+
+// Show Skills on Page
+const skillList = document.querySelector("#skills ul");
+skillList.innerHTML = ""; // Clear old items
+
+for (let skill of skills) {
+  const li = document.createElement("li");
+  li.textContent = skill;
+  skillList.appendChild(li);
+}
+
+// Projects Array
+const projects = [
+  {
+    title: "Portfolio Website",
+    tech: "HTML, CSS, JavaScript"
+  },
+  {
+    title: "Todo App",
+    tech: "JavaScript"
+  }
+];
+
+// Show Projects on Page
+const projectList = document.querySelector("#projects ul");
+projectList.innerHTML = ""; // Clear old items
+
+for (let project of projects) {
+  const li = document.createElement("li");
+  li.textContent = `${project.title} (${project.tech})`;
+  projectList.appendChild(li);
+}
+'''
