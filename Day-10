@@ -67,3 +67,73 @@ for (let project of projects) {
   projectList.appendChild(li);
 }
 '''
+
+Part - 02
+
+# Day 10 — Burp Repeater Quick Notes
+
+## Repeater
+
+Used to **manually edit and resend individual HTTP requests**.
+
+```text
+Proxy → Capture → Send to Repeater
+                 ↓
+              Modify
+                 ↓
+               Send
+                 ↓
+             Compare
+```
+
+## Parameter
+
+A value sent to the server to tell it what to process.
+
+Example:
+
+```http
+GET /product?id=42
+```
+
+```text
+id = parameter
+42 = value
+```
+
+Parameters can appear in:
+
+* URL/query
+* POST body
+* JSON
+* Cookies
+* Headers
+
+## Response Testing
+
+After changing an input, compare:
+
+* Status code
+* Response length
+* Response body
+* Headers
+* Error messages
+
+## Testing Rule
+
+**Change one thing at a time** → easier to identify what caused the response change.
+
+## Proxy vs Repeater
+
+```text
+Proxy    → intercepts live browser traffic
+Repeater → manually edits/resends copied requests
+```
+
+## Core Pentesting Workflow
+
+```text
+Capture → Understand → Modify ONE input → Send → Compare → Assess
+```
+
+**Safety:** Only test your own applications or authorized labs.
