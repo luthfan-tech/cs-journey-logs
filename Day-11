@@ -1,1 +1,240 @@
+Part - 01
 
+Day 11 Notes – Add & Remove Elements
+
+Select input and button
+const input = document.querySelector("#skillInput");
+const btn = document.querySelector("#addSkillBtn");
+const list = document.querySelector("#skillList");
+Add new item on click
+btn.addEventListener("click", function () {
+const value = input.value.trim();
+if (value === "") return;
+
+const li = document.createElement("li");
+li.textContent = value;
+list.appendChild(li);
+input.value = "";
+});
+
+Create Delete button
+const deleteBtn = document.createElement("button");
+deleteBtn.textContent = "Delete";
+Remove element
+deleteBtn.addEventListener("click", function () {
+li.remove();
+});
+Full Pattern
+
+
+Create 
+Create Delete button
+Add click event on Delete button
+Append button inside 
+Append  inside the list
+Key Point:
+We can create elements and also remove them using JavaScript.
+
+example;
+
+script,js: 
+// ========== SKILLS ==========
+const skillInput = document.querySelector("#skillInput");
+const addSkillBtn = document.querySelector("#addSkillBtn");
+const skillList = document.querySelector("#skillList");
+
+addSkillBtn.addEventListener("click", function () {
+  const skill = skillInput.value.trim();
+
+  if (skill === "") {
+    alert("Please enter a skill");
+    return;
+  }
+
+  const li = document.createElement("li");
+  li.textContent = skill;
+
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "Delete";
+  deleteBtn.style.marginLeft = "10px";
+
+  deleteBtn.addEventListener("click", function () {
+    li.remove();
+  });
+
+  li.appendChild(deleteBtn);
+  skillList.appendChild(li);
+  skillInput.value = "";
+});
+
+// ========== PROJECTS ==========
+const projectInput = document.querySelector("#projectInput");
+const addProjectBtn = document.querySelector("#addProjectBtn");
+const projectList = document.querySelector("#projectList");
+
+addProjectBtn.addEventListener("click", function () {
+  const project = projectInput.value.trim();
+
+  if (project === "") {
+    alert("Please enter a project");
+    return;
+  }
+
+  const li = document.createElement("li");
+  li.textContent = project;
+
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "Delete";
+  deleteBtn.style.marginLeft = "10px";
+
+  deleteBtn.addEventListener("click", function () {
+    li.remove();
+  });
+
+  li.appendChild(deleteBtn);
+  projectList.appendChild(li);
+  projectInput.value = "";
+});
+
+
+
+index.html:
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Lutfan Mohammed Asif | Portfolio</title>
+  </head>
+  <body>
+    <header>
+      <h1>Lutfan Mohammed Asif</h1>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="about">
+        <h2>About Me</h2>
+        <p>
+          I'm a passionate first-year CSE student learning Full-Stack
+          Development.
+        </p>
+        <button id="changeTextBtn">Change Text</button>
+        <button id="resetTextBtn">Reset Text</button>
+      </section>
+
+      <!-- Skills -->
+      <input type="text" id="skillInput" placeholder="Enter a skill" />
+      <button id="addSkillBtn">Add Skill</button>
+      <ul id="skillList"></ul>
+
+      <!-- Projects -->
+      <input type="text" id="projectInput" placeholder="Enter a project" />
+      <button id="addProjectBtn">Add Project</button>
+      <ul id="projectList"></ul>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: example@email.com</p>
+        <p>Phone: 9071166105</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>All rights reserved &copy; 2026 Lutfan Mohammed Asif</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+Part - 02
+
+# Day 11 — Authentication & Sessions
+
+## Authentication vs Authorization
+
+```text
+Authentication → Who are you?
+Authorization  → What can you do?
+```
+
+## Sessions
+
+HTTP is **stateless**. Sessions maintain a user's state between requests so they don't need to log in repeatedly.
+
+```text
+Login → Session created → Session ID → Later requests
+```
+
+## Session ID
+
+A unique, randomly generated value that identifies a user's session.
+
+Commonly stored in a **browser cookie**.
+
+## Cookies
+
+**`Set-Cookie`** → Server response header that tells the browser to store a cookie.
+
+**`Cookie`** → Request header that sends stored cookie data back to the server.
+
+Example:
+
+```http
+Set-Cookie: session=abc123
+```
+
+Later:
+
+```http
+Cookie: session=abc123
+```
+
+## Cookie Security Flags
+
+```text
+Secure   → Send cookie only over HTTPS
+HttpOnly → Prevent JavaScript from reading the cookie
+SameSite → Controls cookies in cross-site requests
+```
+
+## Authorization / IDOR
+
+If a user can access another user's resource by changing an identifier **without proper authorization checks**, it can be an **IDOR** vulnerability.
+
+Example concept:
+
+```text
+/profile/100 → own profile
+/profile/101 → another user's profile
+```
+
+The server must verify:
+
+> **Does this user have permission to access this resource?**
+
+## Core Flow
+
+```text
+Login
+  ↓
+Authentication
+  ↓
+Session
+  ↓
+Cookie / Session ID
+  ↓
+Request
+  ↓
+Authorization
+  ↓
+Access granted/denied
+```
+
+**Key mindset:** Authentication proves identity; authorization protects access.
