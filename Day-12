@@ -1,1 +1,196 @@
+Part - 01
 
+Day 12 Notes – Todo List (Basic)
+
+Structure
+
+
+Input → type task
+Button → add task
+ul → show all tasks
+
+
+Select Elements
+const input = document.querySelector("#todoInput");
+const addBtn = document.querySelector("#addBtn");
+const todoList = document.querySelector("#todoList");
+Add Task Logic
+addBtn.addEventListener("click", function () {
+const task = input.value.trim();
+if (task === "") return;
+
+const li = document.createElement("li");
+li.textContent = task;
+const deleteBtn = document.createElement("button");
+deleteBtn.textContent = "Delete";
+deleteBtn.addEventListener("click", function () {
+li.remove();
+});
+li.appendChild(deleteBtn);
+todoList.appendChild(li);
+input.value = "";
+});
+
+Key Concepts Used
+
+
+createElement
+appendChild
+addEventListener
+remove()
+trim()
+
+Key Point:
+Todo List is just: Create element → Add it → Delete it when needed.
+
+Code;
+1.Basic HTML structure:
+'''
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <link rel="stylesheet" href="todo.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Todo List</h1>
+    <input type="text" id="todoInput" placeholder="Enter a task">
+    <button id="addBtn">Add Task</button>
+    <ul id="todoList"></ul>
+  </div>
+
+  <script src="todo.js"></script>
+</body>
+</html>
+'''
+
+2. Basic CSS (simple and clean):
+'''
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  width: 300px;
+}
+
+input {
+  width: 70%;
+  padding: 8px;
+}
+
+button {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+li {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+'''
+
+3.JavaScript (Core Logic):
+'''
+const input = document.querySelector("#todoInput");
+const addBtn = document.querySelector("#addBtn");
+const todoList = document.querySelector("#todoList");
+
+addBtn.addEventListener("click", function () {
+  const task = input.value.trim();
+
+  if (task === "") {
+    alert("Please enter a task");
+    return;
+  }
+
+  const li = document.createElement("li");
+  li.textContent = task;
+
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "Delete";
+
+  deleteBtn.addEventListener("click", function () {
+    li.remove();
+  });
+
+  li.appendChild(deleteBtn);
+  todoList.appendChild(li);
+  input.value = "";
+});
+'''
+
+Part - 02
+
+DAY 12 — ACCESS CONTROL & IDOR
+
+Access Control → Controls what a user is allowed to access or do.
+
+Authentication → Who are you?
+Authorization → What are you allowed to access?
+
+IDOR = Insecure Direct Object References.
+
+An IDOR occurs when an application exposes an object identifier but fails to verify whether the current user is authorized to access that object.
+
+Example:
+GET /profile?id=123
+
+Changing:
+id=123 → id=124
+
+is NOT automatically an IDOR. It becomes an IDOR when the server allows access to an unauthorized resource.
+
+BOLA = Broken Object Level Authorization.
+Commonly used when discussing similar authorization problems in APIs.
+
+Object identifiers can appear in:
+
+URL paths
+Query parameters
+JSON bodies
+Cookies
+Headers
+
+IDOR Testing Workflow:
+
+Find an object identifier.
+Send the request to Burp Repeater.
+Change ONE identifier.
+Send the request.
+Compare the responses.
+Determine whether authorization was correctly enforced.
+
+Compare:
+
+HTTP status code
+Response length
+Response body
+Response time
+Authorization behavior
+
+Core principle:
+
+NEVER rely on hiding IDs for security.
+The server must enforce authorization checks.
+
+Example secure logic:
+
+User → Request resource
+↓
+Server checks: "Is this user authorized for this resource?"
+↓
+YES → Allow
+NO → Deny
