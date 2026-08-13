@@ -133,3 +133,67 @@ li button {
 }
 
 '''
+
+Part - 02
+
+DAY 13 — OWASP TOP 10 FOUNDATIONS
+
+OWASP Top 10 → A list of major web application security risk categories.
+
+1.Broken Access Control
+→ Users can access resources/actions they shouldn't.
+→ IDOR/BOLA belongs here.
+
+2.Cryptographic Failures
+→ Sensitive data is not properly protected.
+→ Examples: weak encryption, poor key handling, insecure transmission.
+
+3.Injection
+→ Untrusted input changes the meaning of a query, command, or interpreter.
+→ Examples: SQL Injection, XSS, OS Command Injection.
+
+4.Insecure Design
+→ Security weakness exists in the application's design or logic.
+
+5.Security Misconfiguration
+→ Insecure settings, default configurations, unnecessary features, exposed debug/error information, etc.
+
+6.Vulnerable & Outdated Components
+→ Using outdated or vulnerable libraries, frameworks, plugins, or dependencies.
+
+7.Identification & Authentication Failures
+→ Problems with login, identity verification, or session management.
+
+8.Software & Data Integrity Failures
+→ Software or data is trusted without properly verifying its integrity.
+
+9.Security Logging & Monitoring Failures
+→ Attacks aren't properly detected, recorded, or investigated.
+
+10.SSRF
+→ Server is manipulated into making unintended network requests.
+
+QUICK MEMORY
+Access Control → Who can access what?
+Cryptography → Is data protected?
+Injection → Can input change execution?
+Design → Is the security model flawed?
+Configuration → Is it configured securely?
+Components → Are dependencies safe?
+Authentication → Is identity handled securely?
+Integrity → Can trusted software/data be tampered with?
+Logging → Can attacks be detected?
+SSRF → Can the server be tricked into making requests?
+
+ROADMAP
+Day 01–13 → Foundations + Web Security Basics ✅
+
+Day 14 → SQL Injection 🔜
+Day 15 → XSS
+Day 16 → CSRF
+Day 17 → File Upload
+Day 18 → Path Traversal
+Day 19 → Command Injection
+Day 20 → SSRF
+Day 21 → API Security
+...
