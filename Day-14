@@ -1,1 +1,191 @@
+Part - 01
 
+Day 14 Notes – Local Storage + Final Todo
+
+Local Storage
+localStorage.setItem("todos", JSON.stringify(todos));
+localStorage.getItem("todos");
+
+
+Saves data in the browser
+Data stays even after refresh
+
+
+JSON methods
+JSON.stringify() → Convert array/object to string
+JSON.parse() → Convert string back to array/object
+Better Structure
+
+
+Keep todos in an array
+Use renderTodos() to show everything
+Use saveTodos() to store data
+
+
+Clear All
+todos = [];
+saveTodos();
+renderTodos();
+
+Key Point:
+Local Storage lets your Todo List remember data after page refresh.
+
+code:
+
+todo.html:
+'''
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <link rel="stylesheet" href="./todo.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Todo List</h1>
+      <input type="text" id="todoInput" placeholder="Enter a task" />
+      <button id="addBtn">Add Task</button>
+      <ul id="todoList"></ul>
+    </div>
+
+    <button id="clearBtn">Clear All</button>
+
+    <script src="todo.js"></script>
+  </body>
+</html>
+'''
+
+todo.css:
+'''
+body {
+  font-family: Arial, sans-serif;
+  background: #612c2c;
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+.container {
+  background: rgb(179, 95, 74);
+  padding: 6%;
+  border-radius: 8px;
+  width: 400px;
+  border: none;
+  color: white;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+}
+
+button {
+  padding: 8px 12px;
+  cursor: pointer;
+  background: #1853c0;
+  border: none;
+  color: white;
+}
+
+li {
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: gray;
+  opacity: 0.7;
+}
+
+li {
+  cursor: pointer;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+li button {
+  margin-left: 10px;
+}
+'''
+
+todo.js:
+'''
+const input = document.querySelector("#todoInput");
+const addBtn = document.querySelector("#addBtn");
+const todoList = document.querySelector("#todoList");
+const clearBtn = document.querySelector("#clearBtn");
+
+let todos = JSON.parse(localStorage.getItem("todos")) || [];
+
+// Display saved todos when page loads
+function renderTodos() {
+  todoList.innerHTML = "";
+
+  todos.forEach((todo, index) => {
+    const li = document.createElement("li");
+    li.textContent = todo.text;
+
+    if (todo.completed) {
+      li.classList.add("completed");
+    }
+
+    li.addEventListener("click", function () {
+      todos[index].completed = !todos[index].completed;
+      saveTodos();
+      renderTodos();
+    });
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+    deleteBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      todos.splice(index, 1);
+      saveTodos();
+      renderTodos();
+    });
+
+    li.appendChild(deleteBtn);
+    todoList.appendChild(li);
+  });
+}
+
+// Save to Local Storage
+function saveTodos() {
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+// Add new task
+function addTask() {
+  const task = input.value.trim();
+  if (task === "") return;
+
+  todos.push({ text: task, completed: false });
+  saveTodos();
+  renderTodos();
+  input.value = "";
+}
+
+addBtn.addEventListener("click", addTask);
+
+input.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    addTask();
+  }
+});
+
+// Clear All
+clearBtn.addEventListener("click", function () {
+  todos = [];
+  saveTodos();
+  renderTodos();
+});
+
+// Load todos on start
+renderTodos();
+
+'''
