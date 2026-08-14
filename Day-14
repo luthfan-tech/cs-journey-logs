@@ -189,3 +189,72 @@ clearBtn.addEventListener("click", function () {
 renderTodos();
 
 '''
+
+Part - 02
+
+DAY 14 — SQL INJECTION (SQLi)
+
+SQL = Structured Query Language
+Used by applications to communicate with databases.
+
+SQL INJECTION:
+SQLi occurs when untrusted user input is handled unsafely and can alter the intended SQL query or logic.
+
+Basic flow:
+User Input → Application → SQL Query → Database
+
+PARAMETERS:
+Parameters are user-controlled input points that may affect application/database behavior.
+
+Example:
+GET /products?category=Books
+
+category = parameter
+Books = value
+
+BASELINE:
+The normal response before making any changes. Used as a control for comparison.
+
+Compare:
+
+Status code
+Response length
+Response body
+Application behavior
+
+BURP REPEATER WORKFLOW:
+
+Find a parameter
+Send request to Repeater
+Create a baseline
+Change ONE input
+Send request
+Compare the response
+
+WHY CHANGE ONE INPUT?
+To isolate exactly what caused a change in the response.
+
+SQLi TYPES:
+
+In-band SQLi → Database results can appear in the application's response.
+Blind SQLi → Results aren't directly displayed; behavior must be inferred.
+Error-based SQLi → Database errors may reveal useful information.
+Time-based SQLi → Response timing can provide information about database behavior.
+
+NORMAL VS UNSAFE INPUT:
+
+Normal input → Treated as DATA
+Unsafe input → May alter SQL LOGIC
+
+MAIN DEFENSE:
+Parameterized Queries / Prepared Statements
+
+They separate:
+SQL structure ≠ User data
+
+This prevents user input from being interpreted as SQL syntax.
+
+KEY TAKEAWAY:
+SQL Injection is fundamentally about untrusted input changing the intended meaning of a SQL query.
+
+DAY 14 — COMPLETE ✅
