@@ -45,3 +45,73 @@ function App() {
 
 export default App;
 '''
+
+Part - 02
+
+DAY 15 — CROSS-SITE SCRIPTING (XSS)
+
+XSS = Cross-Site Scripting:
+XSS occurs when untrusted user-controlled input reaches a webpage/browser context in an unsafe way and can be interpreted as executable code.
+
+CORE DIFFERENCE:
+SQLi → Targets database/query logic
+XSS  → Targets browser/webpage behavior
+
+BASIC FLOW:
+User Input → Application → HTML/JS/DOM → Browser
+
+TYPES OF XSS:
+
+1.Reflected XSS Input is sent in a request and reflected back in the server response.
+
+Flow: Input → Request → Server → Response → Browser
+
+2.Stored XSS Input is stored by the application/database and later displayed to users.
+
+Flow: Input → Storage → Webpage → Browser
+
+Stored XSS can potentially affect multiple users.
+
+3.DOM-based XSS Client-side JavaScript processes attacker-controlled data unsafely and places it into a dangerous DOM/browser context.
+
+Flow: Input → JavaScript → DOM → Browser
+
+SOURCE:
+The location where user-controlled data enters the application.
+
+Examples:
+URL
+Query parameter
+Form input
+Cookie
+Request body
+
+SINK:
+A browser/API operation where data is inserted or interpreted in a potentially dangerous context.
+
+Examples can involve:
+HTML
+Attributes
+JavaScript
+DOM manipulation
+
+XSS TESTING WORKFLOW:
+Find input ↓ Send harmless test value ↓ Find where the value appears ↓ Identify the context ↓ Determine how the application handles it ↓ Test only within an authorized lab
+
+IMPORTANT:
+Not every reflected input is XSS.
+The important question is:
+"Can user-controlled data be interpreted as executable code in the browser?"
+
+MAIN DEFENSES:
+Context-aware output encoding
+Safe HTML/DOM APIs
+Input validation where appropriate
+Content Security Policy (CSP) as defense-in-depth
+
+KEY MEMORY:
+Reflected → Request → Response → Browser Stored    → Storage → Page → Browser DOM       → JavaScript/DOM → Browser
+
+CORE TAKEAWAY:
+XSS is fundamentally about untrusted data reaching a browser context where it can be interpreted as executable code.
+DAY 15 — COMPLETE ✅
