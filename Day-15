@@ -1,1 +1,47 @@
+Part - 01
 
+Day 15 Notes – Introduction to React
+
+What is React?
+React is a JavaScript library used to build user interfaces using components.
+How to create a React app
+npm create vite@latest project-name
+Important commands
+cd project-name
+npm install
+npm run dev
+Main file
+src/App.jsx
+Basic Component
+function App() {
+return (
+ 
+   Hello React
+ 
+
+);
+}
+export default App;
+
+Important Rule
+Always open the app using http://localhost:5173
+Do not open the HTML file directly.
+
+Key Point:
+React works with components. App.jsx is your first component.
+
+code;
+
+src/App.jsx:
+'''
+function App() {
+  return (
+    <div>
+      <h1>Hello React</h1>
+      <p>This is my first React app</p>
+    </div>
+  );
+}
+
+export default App;
+'''
