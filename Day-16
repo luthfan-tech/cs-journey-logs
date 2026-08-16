@@ -52,3 +52,80 @@ State → managed inside the component
 #Key Point:
 Props = pass data
 State = changeable data inside component
+
+Part - 02
+
+DAY 16 — CSRF (CROSS-SITE REQUEST FORGERY)
+
+1.CSRF = Cross-Site Request Forgery.
+DEFINITION:
+CSRF is a vulnerability where an attacker causes a victim's already-authenticated browser to send an unwanted request to a vulnerable application.
+
+2.BASIC FLOW:
+Victim logged in
+↓
+Attacker-controlled page/request
+↓
+Victim's browser
+↓
+Authentication credentials may be included
+↓
+Target application
+↓
+Unwanted state-changing action
+
+3.WHY COOKIES MATTER:
+Browsers can automatically attach authentication cookies to requests, depending on cookie rules such as SameSite.
+
+4.CSRF TOKEN:
+A CSRF token is a unique, unpredictable value used by the server to verify that a sensitive request is legitimate.
+
+5.WHY UNPREDICTABLE:
+If a token can be guessed, an attacker may be able to forge a request containing a valid token.
+
+6.SAMESITE:
+SameSite controls when cookies are sent in cross-site contexts.
+
+7.Common values:
+Strict → Strongest cross-site restriction
+Lax → Allows some cross-site requests
+None → Allows cross-site cookie sending; normally requires Secure
+
+8.XSS vs CSRF:
+XSS → Executes unwanted script in the victim's browser.
+CSRF → Causes the victim's browser to send an unwanted request.
+
+9.CSRF DEFENSES:
+-Anti-CSRF tokens
+-SameSite cookies
+-Origin/Referer validation
+-Proper authentication and authorization checks
+
+10.STATE-CHANGING ACTIONS:
+Actions that modify server-side data, such as changing:
+Email
+Password
+Account settings
+Profile information
+
+11.CORE MENTAL MODEL:
+Request
+↓
+CSRF protection
+↓
+Token / SameSite / Origin checks
+↓
+Valid?
+YES → Process
+NO → Reject
+
+12.KEY TAKEAWAY:
+CSRF abuses a user's authenticated browser to perform an action the user did not intentionally request.
+
+MEMORY:
+XSS → Execute
+CSRF → Request
+SQLi → Database
+IDOR → Authorization
+
+DAY 16 — COMPLETE ✅
