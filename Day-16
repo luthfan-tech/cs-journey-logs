@@ -1,1 +1,54 @@
+Part - 01
 
+#Day 16 Notes – Props & State
+
+1.Props (Passing data to child component)
+
+Welcome.jsx
+function Welcome(props) {
+return
+
+Hello, {props.name};
+}export default Welcome;
+
+App.jsx
+import Welcome from "./Welcome";
+function App() {
+return (
+    
+      <welcome name="Lutfan">
+      <welcome name="Asif">
+    </welcome></welcome>
+  );
+}
+export default App;
+
+-Props are read-only
+-Used to pass data from parent to child
+
+
+2.State (Data that can change)
+
+import { useState } from "react";
+function App() {
+const [count, setCount] = useState(0);
+return (
+    
+      Count: {count}
+      <button onclick="{()" &#x3D;=""> setCount(count + 1)}>Increase</button>
+      <button onclick="{()" &#x3D;=""> setCount(count - 1)}>Decrease</button>
+    
+  );
+}
+
+-useState is a Hook
+-count → current value
+-setCount → function to update the value
+
+3.Key Difference:
+Props → passed from outside (parent)
+State → managed inside the component
+
+#Key Point:
+Props = pass data
+State = changeable data inside component
