@@ -32,3 +32,189 @@ Key Points:
 -...todos = keep old items and add new one
 -.map() = show list of items
 -key={index} = required when using map
+
+Part - 02
+
+DAY 17 — FILE UPLOAD VULNERABILITIES
+=====================================
+
+1. WHAT IS A FILE UPLOAD VULNERABILITY?
+---------------------------------------
+A security flaw where an application does not properly validate, store,
+or serve user-uploaded files.
+
+It can lead to:
+- Unauthorized file access
+- Dangerous file processing
+- Data exposure
+- In some cases, server-side code execution
+
+
+2. NORMAL FILE UPLOAD FLOW
+--------------------------
+User Upload
+    ↓
+Validation
+    ↓
+Content Verification
+    ↓
+Safe Filename
+    ↓
+Safe Storage
+    ↓
+Authorization
+    ↓
+Controlled Access
+
+
+3. HTTP FILE UPLOAD
+-------------------
+Common method:
+POST
+
+Example:
+POST /upload
+Content-Type: multipart/form-data
+
+multipart/form-data:
+An HTTP encoding type that divides the request body into separate
+sections so text fields and files can be sent together.
+
+
+4. IMPORTANT FILE PROPERTIES
+----------------------------
+Filename:
+The name given to the uploaded file.
+
+Extension:
+The ending of a filename.
+
+Examples:
+.jpg
+.png
+.pdf
+
+MIME / Content-Type:
+A label describing the intended type of data.
+
+Example:
+Content-Type: image/jpeg
+
+
+5. WHY CLIENT INPUT CANNOT BE TRUSTED
+-------------------------------------
+Client-controlled values can be manipulated.
+
+Examples:
+- Filename
+- File extension
+- Content-Type
+
+Therefore:
+
+Extension check alone → NOT sufficient
+Content-Type alone   → NOT sufficient
+
+The application should verify the actual file where appropriate.
+
+
+6. WHY EXTENSION CHECKING IS NOT ENOUGH
+---------------------------------------
+A filename extension can be changed or spoofed.
+
+Example:
+image.jpg
+
+The application should not assume a file is safe simply because
+its filename ends with .jpg.
+
+
+7. SECURE FILE UPLOAD CONTROLS
+------------------------------
+A secure application should consider:
+
+- Allowlist permitted file types
+- Validate actual file content
+- Check file size
+- Generate safe/random filenames
+- Store files safely
+- Prevent unintended file execution
+- Apply authorization checks
+- Scan files when appropriate
+
+
+8. STORAGE LOCATION
+-------------------
+Storage location matters.
+
+Uploaded files should not be stored in a location where untrusted
+files can be executed as server-side code.
+
+Safer design:
+Upload → Validate → Store outside executable web locations
+      → Serve through controlled application logic
+
+
+9. AUTHORIZATION
+----------------
+Authorization ensures users can only access or modify files they
+are permitted to access.
+
+Example:
+
+User A → Can access User A's files
+User B → Cannot access User A's files
+
+
+10. BURP SUITE TESTING
+----------------------
+1. Find the file upload request.
+2. Inspect the multipart/form-data request.
+3. Identify:
+   - Filename
+   - Content-Type
+   - File data
+4. Understand what validation the application performs.
+5. Compare the application's behavior.
+6. Test ONLY inside an authorized lab.
+
+
+11. IMPORTANT SECURITY CONCEPTS
+------------------------------
+Extension:
+Can be spoofed.
+
+Content-Type:
+Can be spoofed.
+
+Actual file content:
+Should be validated where appropriate.
+
+Storage location:
+Can affect whether uploaded content can be executed or accessed.
+
+Authorization:
+Must still be enforced.
+
+
+12. KEY TAKEAWAY
+---------------
+File upload security is NOT just about checking whether a file ends
+with .jpg or .pdf.
+
+A secure application must properly:
+
+Validate
+   ↓
+Verify
+   ↓
+Rename
+   ↓
+Store safely
+   ↓
+Authorize access
+   ↓
+Serve safely
+
+
+DAY 17 — COMPLETE ✅
