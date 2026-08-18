@@ -120,3 +120,156 @@ function App() {
 }
 
 export default App;
+
+Part - 02
+
+DAY 18 — PATH TRAVERSAL
+=======================
+
+1. WHAT IS PATH TRAVERSAL?
+--------------------------
+Path Traversal is a vulnerability where user-controlled input can
+manipulate a filesystem path and potentially access files or directories
+outside the application's intended directory.
+
+Basic idea:
+
+User Input
+    ↓
+Application builds file path
+    ↓
+Path escapes intended directory
+    ↓
+Unauthorized file access
+
+
+2. LINUX PATH BASICS
+--------------------
+..    = Parent directory
+../   = Move up one directory
+
+Example:
+
+/home/kali/CyberLab/Day18
+            ↓ ../
+/home/kali/CyberLab
+
+
+3. COMMON WEB PARAMETERS
+------------------------
+Path Traversal may appear in parameters such as:
+
+file=
+filename=
+path=
+download=
+page=
+document=
+image=
+template=
+folder=
+
+Example:
+
+GET /download?file=report.pdf
+
+The parameter is NOT automatically vulnerable.
+
+The important question is:
+
+"Does the application use this input to construct a filesystem path
+without properly restricting it?"
+
+
+4. IDOR vs PATH TRAVERSAL
+------------------------
+IDOR:
+Authorization problem.
+
+Question:
+"Am I allowed to access this application object?"
+
+Path Traversal:
+Filesystem path-handling problem.
+
+Question:
+"Can my input escape the intended directory?"
+
+
+5. WHY NORMALIZATION MATTERS
+----------------------------
+Paths can have different representations.
+
+Normalization/canonicalization resolves the path into its actual
+destination so the server can determine where it really points.
+
+
+6. SECURE PATH VALIDATION
+-------------------------
+A secure application should:
+
+User Input
+    ↓
+Normalize / Resolve Path
+    ↓
+Determine Final Path
+    ↓
+Check Allowed Directory
+    ↓
+Inside Allowed Directory?
+    ↓
+YES → Allow
+NO  → Reject
+
+
+7. WHY BLACKLISTING IS WEAK
+---------------------------
+Simply blocking one string such as "../" is not a reliable defense.
+
+Paths can have alternative representations or encodings.
+
+Better approach:
+- Normalize/canonicalize the path
+- Validate the final resolved path
+- Restrict access to an allowed directory
+
+
+8. IMPORTANT DEFENSES
+---------------------
+- Canonicalize/normalize paths
+- Use an allowlisted base directory
+- Validate the final resolved path
+- Avoid directly using user input as filesystem paths
+- Apply proper authorization
+- Reject paths outside the permitted directory
+
+
+9. BURP TESTING WORKFLOW
+------------------------
+1. Find a file/path parameter.
+2. Send the request to Repeater.
+3. Record the baseline response.
+4. Understand what the parameter represents.
+5. Follow the authorized lab's instructions.
+6. Observe how the application handles path changes.
+
+
+10. KEY MEMORY
+--------------
+..          → Parent directory
+../         → Move up one directory
+
+IDOR        → Authorization problem
+Path        → Filesystem problem
+Traversal   → Escaping the intended directory
+
+
+11. CORE TAKEAWAY
+-----------------
+Path Traversal happens when an application fails to properly restrict
+user-controlled filesystem paths.
+
+The server should ensure that the final resolved path remains inside
+the intended directory.
+
+DAY 18 — COMPLETE ✅
