@@ -1,1 +1,122 @@
+Part - 01
 
+Day 18 Notes – React Todo (Delete + Complete)
+
+1.Todo as Object
+const newTodo = {
+id: Date.now(),
+text: task,
+completed: false
+};
+
+2.Add Task
+setTodos([...todos, newTodo]);
+
+3.Delete Task
+function deleteTask(id) {
+setTodos(todos.filter((todo) => todo.id !== id));
+}
+
+4..Toggle Complete
+function toggleComplete(id) {
+setTodos(
+todos.map((todo) =>
+todo.id === id ? { ...todo, completed: !todo.completed } : todo
+)
+);
+}
+
+5.Render with Style
+
+-toggleComplete(todo.id)}>{todo.text}<button onclick="{()" &#x3D;=""> deleteTask(todo.id)}>Delete</button>
+
+6.Key Points:
+-filter() → removes an item
+-map() → updates an item
+-Always use unique id (Date.now())
+-Spread operator (...todo) keeps other values while changing one.
+
+code: 
+
+app.jsx: 
+import { useState } from "react";
+
+function App() {
+  const [task, setTask] = useState("");
+  const [todos, setTodos] = useState([]);
+
+  // Add Task
+  function addTask() {
+    if (task.trim() === "") return;
+
+    const newTodo = {
+      id: Date.now(),
+      text: task,
+      completed: false,
+    };
+
+    setTodos([...todos, newTodo]);
+    setTask("");
+  }
+
+  // Delete Task
+  function deleteTask(id) {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  }
+
+  // Toggle Complete
+  function toggleComplete(id) {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo,
+      ),
+    );
+  }
+
+  return (
+    <div style={{ padding: "20px", maxWidth: "400px", margin: "auto" }}>
+      <h1>Todo List (React)</h1>
+
+      <input
+        type="text"
+        value={task}
+        onChange={(e) => setTask(e.target.value)}
+        placeholder="Enter a task"
+        style={{ padding: "8px", width: "70%" }}
+      />
+      <button
+        onClick={addTask}
+        style={{ padding: "8px 12px", marginLeft: "5px" }}
+      >
+        Add
+      </button>
+
+      <ul style={{ listStyle: "none", padding: 0 }}>
+        {todos.map((todo) => (
+          <li
+            key={todo.id}
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              padding: "10px",
+              borderBottom: "1px solid #ddd",
+              textDecoration: todo.completed ? "line-through" : "none",
+              color: todo.completed ? "gray" : "black",
+            }}
+          >
+            <span
+              onClick={() => toggleComplete(todo.id)}
+              style={{ cursor: "pointer" }}
+            >
+              {todo.text}
+            </span>
+            <button onClick={() => deleteTask(todo.id)}>Delete</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default App;
