@@ -1,3 +1,5 @@
+Part - 01
+
 Day 19 Notes – Local Storage in React
 
 1.Import useEffect
@@ -29,3 +31,197 @@ useEffect(() => {
 -Runs every time todos changes
 Key Point:
 useEffect + localStorage = data stays even after page refresh.
+
+Part - 02
+
+DAY 19 — OS COMMAND INJECTION
+=============================
+
+1. WHAT IS OS COMMAND INJECTION?
+---------------------------------
+A vulnerability where user-controlled input can influence or cause
+unauthorized operating-system commands to execute.
+
+Basic flow:
+
+User Input
+    ↓
+Web Application
+    ↓
+OS Command
+    ↓
+Operating System
+
+
+2. WHAT DOES IT TARGET?
+-----------------------
+OS Command Injection targets the underlying:
+
+- Operating system
+- Server environment
+- System-level commands
+
+
+3. WHY IS IT DANGEROUS?
+-----------------------
+If an application passes untrusted input directly into a system shell,
+the input may be interpreted as part of a command instead of simple data.
+
+Unsafe:
+
+User Input → Shell → Command
+
+Secure:
+
+User Input → Validation → Safe API → Operation
+
+
+4. SQL INJECTION vs COMMAND INJECTION
+--------------------------------------
+
+SQL Injection:
+→ Targets the database.
+
+OS Command Injection:
+→ Targets the operating system.
+
+Memory:
+
+SQLi       → Database
+Command    → Operating System
+
+
+5. WHERE CAN IT APPEAR?
+------------------------
+Especially in features that interact with system utilities:
+
+- Network diagnostics
+- Ping tools
+- DNS lookups
+- File converters
+- Image processing
+- Archive processing
+- System utilities
+
+
+6. COMMON PARAMETERS
+--------------------
+Examples:
+
+host=
+ip=
+filename=
+file=
+path=
+command=
+
+IMPORTANT:
+A parameter is NOT automatically vulnerable because of its name.
+
+The important question is:
+
+"Does the server use this input in an OS command?"
+
+
+7. BLIND COMMAND INJECTION
+--------------------------
+Blind Command Injection occurs when the command executes but its output
+is not directly displayed in the HTTP response.
+
+Concept:
+
+Input
+  ↓
+Command executes
+  ↓
+Output not shown
+
+
+8. BURP REPEATER
+----------------
+Burp Repeater is useful because it allows you to:
+
+- Modify requests
+- Resend requests
+- Test different inputs
+- Compare responses
+
+Always establish a baseline first.
+
+Compare:
+
+- Status Code
+- Response Length
+- Response Body
+- Response Time
+
+
+9. TESTING METHODOLOGY
+----------------------
+1. Find the relevant input.
+2. Understand what the input does.
+3. Send the request to Repeater.
+4. Establish a normal baseline.
+5. Change ONE input at a time.
+6. Compare the response.
+7. Test ONLY in an authorized lab.
+
+
+10. WHY CHANGE ONE THING AT A TIME?
+-----------------------------------
+Changing one variable at a time helps identify exactly which input
+caused the application's behavior to change.
+
+
+11. MAIN DEFENSE
+----------------
+Avoid passing user-controlled input directly to system shells.
+
+Prefer:
+
+- Safe built-in APIs
+- Structured process-execution functions
+- Strict input validation
+- Allowlisting where appropriate
+- Least-privilege execution
+
+
+12. CORE MENTAL MODEL
+---------------------
+UNSAFE:
+
+User Input
+    ↓
+Shell
+    ↓
+OS Command
+
+
+SECURE:
+
+User Input
+    ↓
+Validate
+    ↓
+Treat as DATA
+    ↓
+Safe API
+    ↓
+Operation
+
+
+13. QUICK MEMORY
+----------------
+SQLi       → Database
+XSS        → Browser
+CSRF       → Unwanted Request
+IDOR       → Authorization
+Traversal  → Filesystem
+Command    → Operating System
+
+
+KEY TAKEAWAY:
+Never blindly pass untrusted user input into operating-system commands.
+Use safe APIs and treat user input as DATA, not executable commands.
+
+DAY 19 — COMPLETE ✅
