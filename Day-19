@@ -1,1 +1,31 @@
+Day 19 Notes – Local Storage in React
 
+1.Import useEffect
+import { useState, useEffect } from "react";
+
+2.Load data from Local Storage (on start)
+const [todos, setTodos] = useState(() => {
+const saved = localStorage.getItem("todos");
+return saved ? JSON.parse(saved) : [];
+});
+
+3.Save data whenever todos change
+useEffect(() => {
+localStorage.setItem("todos", JSON.stringify(todos));
+}, [todos]);
+
+4.Important Methods:
+localStorage.setItem("key", value)
+localStorage.getItem("key")
+JSON.stringify() → convert to string
+JSON.parse() → convert back to array/object
+
+5.useEffect Dependency
+useEffect(() => {
+// code
+}, [todos]);
+
+
+-Runs every time todos changes
+Key Point:
+useEffect + localStorage = data stays even after page refresh.
