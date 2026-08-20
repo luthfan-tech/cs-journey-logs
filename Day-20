@@ -1,1 +1,45 @@
+Part - 01
 
+Day 20 Notes – React Components
+
+1.Create Component
+function TodoInput({ task, setTask, addTask }) {
+return (
+ 
+    setTask(e.target.value)}
+     placeholder="Enter a task"
+   />
+   <button onclick="{addTask}">Add</button>
+ 
+
+);
+}
+export default TodoInput;
+
+2.Import Component
+import TodoInput from "./TodoInput";
+import TodoList from "./TodoList";
+
+3.Use Component + Pass Props
+<TodoInput task={task} setTask={setTask} addTask={addTask} />
+
+<TodoList
+todos={todos}
+toggleComplete={toggleComplete}
+deleteTask={deleteTask}
+/>
+
+4.Receive Props
+function TodoItem({ todo, toggleComplete, deleteTask }) {
+return (
+
+5.toggleComplete(todo.id)}>{todo.text}<button onclick="{()" &#x3D;=""> deleteTask(todo.id)}>Delete</button>
+
+);
+}
+
+Key Points:
+-Component = reusable piece of UI
+-Props = data passed from parent to child
+-Always export the component
+-Always import before using it
