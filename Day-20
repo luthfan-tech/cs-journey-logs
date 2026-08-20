@@ -43,3 +43,195 @@ Key Points:
 -Props = data passed from parent to child
 -Always export the component
 -Always import before using it
+
+Part - 02
+
+DAY 20 — SSRF (SERVER-SIDE REQUEST FORGERY)
+===========================================
+
+1. WHAT IS SSRF?
+----------------
+SSRF = Server-Side Request Forgery.
+
+SSRF is a vulnerability where user-controlled input causes a server
+to make an unintended request to another resource.
+
+Basic flow:
+
+Attacker
+   ↓
+Web Application
+   ↓
+Server makes request
+   ↓
+Unexpected resource
+
+
+2. WHY "SERVER-SIDE" MATTERS
+----------------------------
+The request originates from the application server.
+
+The server may have different network access, permissions, or trust
+relationships than an external user.
+
+IMPORTANT:
+SSRF does not automatically bypass firewalls, but the server may be
+able to reach resources that the attacker cannot directly reach.
+
+
+3. WHAT DOES SSRF ABUSE?
+------------------------
+SSRF abuses the server's ability to make network requests.
+
+Possible targets include:
+
+- Internal services
+- Backend applications
+- Private network resources
+- External services
+- Cloud services
+
+
+4. COMMON SSRF FUNCTIONALITY
+----------------------------
+SSRF can appear in features that fetch remote resources:
+
+- URL previews
+- Image fetching
+- Webhooks
+- Import-from-URL features
+- Remote resource fetching
+- PDF/document generators
+
+Possible parameters:
+
+url=
+uri=
+dest=
+target=
+callback=
+image_url=
+
+IMPORTANT:
+A parameter such as url= does NOT automatically mean SSRF.
+
+
+5. IMPORTANT QUESTION
+---------------------
+Ask:
+
+"Does the server actually make a request based on this
+user-controlled destination?"
+
+If YES:
+Investigate whether unintended destinations are possible.
+
+If NO:
+It is not necessarily SSRF.
+
+
+6. SSRF vs CSRF
+---------------
+
+CSRF:
+Attacker → Victim's Browser → Target Application
+
+SSRF:
+Attacker → Target Application → Another Resource
+
+Memory:
+
+CSRF → Browser
+SSRF → Server
+
+
+7. INTERNAL SERVICES
+--------------------
+Internal services may have network access that external attackers
+do not have.
+
+However, internal services are NOT automatically unauthenticated
+or trusted.
+
+The security risk depends on the application's network architecture
+and access controls.
+
+
+8. BURP REPEATER
+----------------
+Burp Repeater is useful for:
+
+- Modifying requests
+- Resending requests
+- Testing different inputs
+- Comparing responses
+
+Testing workflow:
+
+Find Request
+    ↓
+Send to Repeater
+    ↓
+Establish Baseline
+    ↓
+Change ONE input
+    ↓
+Send
+    ↓
+Compare Response
+
+
+9. BASELINE RESPONSE
+--------------------
+A baseline is the normal, unmodified response.
+
+Compare:
+
+- Status Code
+- Response Length
+- Response Body
+- Response Time
+
+
+10. SSRF DEFENSES
+-----------------
+Important defenses include:
+
+- Strict destination allowlists
+- Restrict outbound network access
+- Validate user-controlled URLs
+- Block unintended internal destinations
+- Use network segmentation
+- Apply authentication and authorization where appropriate
+
+
+11. CORE MENTAL MODEL
+---------------------
+
+User-controlled destination
+          ↓
+      Validation
+          ↓
+Trusted destination?
+     ↓          ↓
+    YES         NO
+     ↓           ↓
+Make request   Reject
+
+
+12. QUICK MEMORY
+----------------
+XSS        → Browser executes script
+CSRF       → Browser sends unwanted request
+SSRF       → Server sends unwanted request
+SQLi       → Database
+IDOR       → Authorization
+Traversal  → Filesystem
+Command    → Operating System
+
+
+KEY TAKEAWAY:
+SSRF happens when an application allows user-controlled input to
+influence server-side requests to unintended destinations.
+
+DAY 20 — COMPLETE ✅
