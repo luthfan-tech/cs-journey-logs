@@ -34,3 +34,94 @@ Key Points:
 -Route → defines one page
 -path="/" → home page
 -element={} → which component to show
+
+Part - 02
+
+DAY 21 — AUTHENTICATION VULNERABILITIES
+=======================================
+
+1. AUTHENTICATION vs AUTHORIZATION
+----------------------------------
+Authentication → Verifies WHO the user is.
+Authorization  → Determines WHAT the user can access/do.
+
+2. USERNAME ENUMERATION
+-----------------------
+A vulnerability where application responses reveal whether a username
+or account exists.
+
+Look for differences in:
+- Error messages
+- Status codes
+- Response length
+- Response time
+
+3. LOGIN FLOW
+-------------
+Username + Password
+        ↓
+Server validates credentials
+        ↓
+Valid?
+ ↓        ↓
+YES       NO
+ ↓         ↓
+Session   Reject
+
+
+4. SESSIONS
+-----------
+After successful authentication, a session maintains the user's
+logged-in state across multiple requests.
+
+Typical flow:
+
+Login → Server → Set-Cookie → Browser → Cookie on future requests
+
+
+5. BROKEN AUTHENTICATION
+------------------------
+Occurs when the server incorrectly verifies identity or relies on
+client-controlled information for security decisions.
+
+IMPORTANT:
+Security decisions must be made server-side.
+
+
+6. BURP TESTING
+---------------
+1. Capture login request.
+2. Establish a baseline.
+3. Send to Repeater.
+4. Change ONE input at a time.
+5. Compare:
+   - Status
+   - Response length
+   - Response body/message
+   - Response time
+
+
+7. IMPORTANT DEFENSES
+---------------------
+- Server-side authentication checks
+- Generic login error messages
+- Strong password policies
+- Appropriate rate limiting
+- Secure session management
+
+
+8. QUICK MEMORY
+---------------
+Authentication → WHO?
+Authorization  → WHAT?
+Enumeration    → WHICH accounts exist?
+Session        → Maintains login state
+Burp Repeater  → Modify + compare requests
+
+
+KEY TAKEAWAY:
+Authentication must be verified by the server before creating an
+authenticated session. Avoid response differences that reveal
+whether accounts exist.
+
+DAY 21 — COMPLETE ✅
