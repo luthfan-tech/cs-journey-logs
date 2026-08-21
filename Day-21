@@ -1,1 +1,36 @@
+Part - 01
 
+Day 21 Notes – React Router
+
+1.Install
+npm install react-router-dom
+
+2.Wrap the App (in main.jsx)
+import { BrowserRouter } from "react-router-dom";
+<BrowserRouter><App /></BrowserRouter>
+
+3.Create Pages
+function Home() {
+return Home Page;
+}
+export default Home;
+
+4.Navigation + Routes (in App.jsx)
+import { Routes, Route, Link } from "react-router-dom";
+
+  <link to="/">Home
+  <link to="/about">About
+  <link to="/todo">Todo
+
+<Routes>
+<Route path="/" element={<Home />} />
+<Route path="/about" element={<About />} />
+<Route path="/todo" element={<div>Todo Page</div>} />
+</Routes>
+
+Key Points:
+-Link → used for navigation (like  tag)
+-Routes → contains all pages
+-Route → defines one page
+-path="/" → home page
+-element={} → which component to show
