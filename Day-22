@@ -1,1 +1,44 @@
+Part - 01
 
+Day 22 Notes – Backend Setup (Node + Express)
+
+1.Create Backend Folder
+mkdir backend
+cd backend
+
+2.Initialize Project
+npm init -y
+
+3.Install Packages
+npm install express cors
+
+4.Basic Server Code (index.js)
+import express from "express";
+import cors from "cors";
+
+const app = express();
+const PORT = 5000;
+
+app.use(cors());
+app.use(express.json());
+
+app.get("/", (req, res) => {
+res.json({ message: "Backend is running" });
+});
+
+app.listen(PORT, () => {
+console.log(Server running on http://localhost:${PORT});
+});
+
+5.Run the Server
+node index.js
+
+6.Important Points:
+-express → creates the server
+-cors → allows frontend to talk to backend
+-express.json() → allows backend to read JSON data
+-app.get() → creates a GET route
+-app.listen() → starts the server
+
+Key Point:
+Backend runs on a different port (usually 5000) than React (5173).
