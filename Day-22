@@ -42,3 +42,50 @@ node index.js
 
 Key Point:
 Backend runs on a different port (usually 5000) than React (5173).
+
+Part - 02
+
+DAY 22 — NMAP (QUICK NOTES)
+
+Nmap = Network Mapper → used for host discovery, port scanning, service enumeration, OS detection and NSE-based enumeration.
+
+BASIC COMMANDS
+nmap <TARGET> → scans default 1,000 common ports
+nmap -p- <TARGET> → scans all 65,535 TCP ports
+nmap -p 22,80,443 <TARGET> → specific ports
+nmap -sn <NETWORK/CIDR> → host discovery only
+
+SCAN TYPES
+-sS → TCP SYN scan
+-sT → TCP Connect scan
+-sU → UDP scan
+
+ENUMERATION
+-sV → service/version detection
+-sC → default NSE scripts
+-O → OS detection
+-A → OS + version + default scripts + traceroute
+
+NSE
+NSE = Nmap Scripting Engine
+Used for discovery, enumeration and security checks.
+Always understand a script before running it.
+
+OUTPUT
+-oN scan.txt → normal output
+-oX scan.xml → XML
+-oA scan → saves multiple formats
+
+PENTEST WORKFLOW
+Discover hosts
+→ Find open ports
+→ Identify services/versions
+→ Run relevant NSE
+→ Identify attack surface
+→ Investigate interesting services
+→ Save evidence
+
+IMPORTANT
+Open port ≠ vulnerability.
+Service/version information tells you what to investigate next.
+Only scan authorized targets/labs.
