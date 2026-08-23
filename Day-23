@@ -1,1 +1,33 @@
+Part - 01
 
+Day 23 Notes – MongoDB + Mongoose
+
+1.Install Mongoose
+npm install mongoose
+
+2.Connect to MongoDB
+import mongoose from "mongoose";
+
+mongoose.connect(MONGO_URL)
+.then(() => console.log("MongoDB Connected"))
+.catch((err) => console.log(err));
+
+3.Connection String Format
+mongodb+srv://username:password@cluster0.xxxxx.mongodb.net/todoapp?retryWrites=true&w=majority
+
+4.Create Schema + Model
+const todoSchema = new mongoose.Schema({
+text: String,
+completed: { type: Boolean, default: false }
+});
+
+const Todo = mongoose.model("Todo", todoSchema);
+
+5.Important Points:
+-Schema = structure of data
+-Model = used to interact with the database
+-Always allow Network Access (0.0.0.0/0) in Atlas for learning
+-Database name is written after .net/ (example: /todoapp)
+
+6.Key Point:
+Mongoose helps Node.js talk to MongoDB easily.
