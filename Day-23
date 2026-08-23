@@ -31,3 +31,44 @@ const Todo = mongoose.model("Todo", todoSchema);
 
 6.Key Point:
 Mongoose helps Node.js talk to MongoDB easily.
+
+Part - 02
+
+DAY 23 — WIRESHARK (QUICK NOTES)
+
+Wireshark = packet capture + network traffic analysis.
+
+CORE FILTERS
+dns → DNS traffic
+http → HTTP traffic
+tls → TLS/HTTPS traffic
+tcp → TCP traffic
+udp → UDP traffic
+ip.addr == X.X.X.X → traffic involving an IP
+tcp.port == 80 → TCP port 80
+
+TCP HANDSHAKE
+SYN → SYN-ACK → ACK
+
+HTTP vs HTTPS
+HTTP → application data can be readable.
+HTTPS → HTTP data is protected by TLS encryption.
+
+TCP STREAM
+Right-click packet → Follow → TCP Stream
+→ Reconstructs the conversation between client and server.
+
+BASIC WORKFLOW
+Capture → Filter → Identify protocol → Inspect packets → Follow conversation.
+
+PRACTICAL USE
+Wireshark helps understand:
+
+DNS lookups
+TCP connections
+HTTP requests
+TLS connections
+Network communication patterns
+
+IMPORTANT
+Only capture/analyze traffic you are authorized to inspect.
