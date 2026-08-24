@@ -1,1 +1,49 @@
+Part - 01
 
+Day 1 Notes – How Backend Works
+
+1.Real-world Analogy:
+-Frontend = Customer
+-Backend = Waiter + Kitchen
+-API = The waiter who takes the order and brings the food
+
+2.Basic Flow:
+Browser (Frontend)
+↓ Request
+Backend Server
+↓ Talks to Database
+Database
+↓ Response (JSON)
+Frontend shows the result
+
+3.Essential Terms:
+-Frontend → What the user sees
+-Backend → Hidden part that processes data
+-API → Way frontend and backend talk
+-Request → What frontend asks
+-Response → What backend sends back
+-JSON → Common data format both understand
+-Client → Browser / Frontend
+-Server → Backend
+
+4.Request-Response Cycle
+
+5.User does something
+
+6.Frontend sends Request
+
+7.Backend processes it
+
+8.Backend sends Response
+
+9.Frontend updates the page
+
+10.Security Lens:
+-Never trust data from frontend
+-Always validate inputs
+-Don’t expose sensitive data
+-Use HTTPS
+
+Key Point:
+Frontend never talks directly to the database.
+It always goes through the Backend (API).
