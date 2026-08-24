@@ -47,3 +47,39 @@ Frontend shows the result
 Key Point:
 Frontend never talks directly to the database.
 It always goes through the Backend (API).
+
+
+Part - 02
+
+DAY 24 — METASPLOIT (QUICK NOTES)
+
+Metasploit = security framework for testing and validating vulnerabilities.
+
+CORE TERMS
+Exploit → takes advantage of a vulnerability.
+Payload → action/code delivered through an exploit.
+Session → connection established with the target after successful exploitation.
+
+IMPORTANT COMMANDS
+msfconsole → start Metasploit
+search <keyword> → find modules
+use <module> → select module
+info → module details
+show options → required/optional settings
+set <OPTION> <VALUE> → configure
+run / exploit → execute
+sessions → list sessions
+sessions -i <ID> → interact with session
+back → leave module
+
+IMPORTANT OPTIONS
+RHOSTS → target IP/address
+RPORT → target service port
+LHOST → local/listening address
+LPORT → local/listening port
+
+PENTEST WORKFLOW
+Nmap → identify service/version → confirm vulnerability → search Metasploit → inspect module → configure → exploit lab → verify → document.
+
+KEY RULE
+Never blindly run exploits. Understand the module and use Metasploit only against authorized lab targets.
