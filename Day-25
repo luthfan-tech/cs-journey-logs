@@ -42,3 +42,50 @@ MongoDB = flexible documents
 PostgreSQL = structured tables
 
 Always protect your database.
+
+Part = 02
+
+DAY 25 — PENTEST METHODOLOGY (QUICK NOTES)
+
+PENTEST WORKFLOW
+Scope → Recon → Enumeration → Vulnerability Assessment → Exploitation → Evidence → Reporting
+
+SCOPE
+Defines what can/cannot be tested and keeps testing authorized.
+
+RECON
+Gather information about the target.
+
+ENUMERATION
+Actively identify:
+
+Open ports
+Services
+Versions
+Attack surface
+
+VULNERABILITY ASSESSMENT
+Determine whether identified services have security weaknesses before exploiting.
+
+EXPLOITATION
+Safely validate confirmed vulnerabilities in an authorized lab.
+
+EVIDENCE
+Record:
+
+Timestamp
+Commands
+Tool output
+Screenshots
+Requests/responses
+Finding details
+
+TOOL MAP
+Nmap → ports/services
+Burp Suite → web requests
+Wireshark → network packets
+Metasploit → known lab vulnerabilities
+
+KEY RULE
+Open port ≠ vulnerability.
+Identify → verify → test → document.
