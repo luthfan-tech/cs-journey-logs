@@ -1,1 +1,44 @@
+Part - 01
 
+Day 3 Notes – MongoDB + PostgreSQL
+
+1.Main Difference
+MongoDB → Flexible, stores data as JSON-like documents (NoSQL)
+PostgreSQL → Strict, stores data in tables with fixed columns (SQL)
+
+2.Essential Terms:
+-Database → Place where data is stored
+-Collection → Group of documents (MongoDB)
+-Document → Single record in MongoDB (like a JS object)
+-Table → Structured data in rows and columns (PostgreSQL)
+-Schema → Rules about how data should look
+-Atlas → MongoDB’s cloud service
+
+
+3.When to Use Which:
+
+Use MongoDB when:
+-Data structure changes often
+-You want faster development
+
+Use PostgreSQL when:
+-You need strong relationships between data
+-Data accuracy and complex queries are important
+
+4.MongoDB Atlas Important Sections:
+-Database Access → Username and password
+-Network Access → Which IPs are allowed to connect
+-Connect → Gives you the connection string
+-Browse Collections → View and edit data
+
+Security Lens:
+-Never leave Network Access open to everyone permanently
+-Never put connection strings in frontend code
+-Always use strong passwords
+-Store secrets in environment variables
+
+6.Key Point:
+MongoDB = flexible documents
+PostgreSQL = structured tables
+
+Always protect your database.
