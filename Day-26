@@ -1,1 +1,29 @@
+Day 5 Notes – Authentication
 
+1.Core Difference:
+-Authentication → Proving who you are
+-Authorization → What you are allowed to do
+
+2.Common Methods:
+-Session + Cookie → Server remembers the user
+-JWT (JSON Web Token) → Client stores a signed token and sends it with requests
+
+3.Basic Login Flow:
+User enters email + password
+→ Frontend sends it to Backend
+→ Backend checks database
+→ If correct, Backend creates Session or JWT
+→ Frontend stores it and uses it for future requests
+
+4.Essential Terms:
+-Token → Digital pass given after login
+-Cookie → Small data stored in the browser
+-Hashing → Converting password into unreadable form
+-Session → Server-side memory of the logged-in user
+
+5.Security Rules:
+-Never store passwords in plain text (always hash them)
+-Use HTTPS
+-Give tokens an expiration time
+-Prefer httpOnly cookies when possible
+-Protect sensitive routes with authentication check
