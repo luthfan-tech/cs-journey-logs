@@ -1,3 +1,5 @@
+Day - 01
+
 Day 5 Notes – Authentication
 
 1.Core Difference:
@@ -27,3 +29,55 @@ User enters email + password
 -Give tokens an expiration time
 -Prefer httpOnly cookies when possible
 -Protect sensitive routes with authentication check
+
+Part - 02
+
+DAY 26 — WEB MINI-PENTEST
+
+OBJECTIVE:
+Perform an end-to-end web pentest on an authorized lab.
+
+WORKFLOW:
+Nmap → Web Mapping → Burp → Vulnerability Testing → Evidence
+
+RECON:
+nmap -sC -sV <TARGET>
+
+Record:
+IP
+Open ports
+Services/versions
+Web endpoints
+
+BURP:
+Proxy → HTTP History → Repeater
+
+Inspect:
+Method
+Path
+Parameters
+Cookies
+Headers
+Response
+
+TESTING:
+Baseline request → Change ONE thing → Compare response → Confirm behavior
+
+FOCUS:
+IDOR / Broken Access Control
+SQL Injection
+XSS
+CSRF
+File Upload
+Path Traversal
+
+EVIDENCE:
+Finding
+Endpoint/parameter
+Normal vs changed behavior
+Status/response
+Impact
+Screenshot
+
+KEY RULE:
+Map first → Test carefully → Confirm → Document.
