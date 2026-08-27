@@ -35,3 +35,46 @@ Key Point:
 Next.js = React with extra powers
 
 Tailwind = Fast styling using utility classes
+
+Part - 02
+
+DAY 27 — NETWORK MINI-PENTEST
+
+OBJECTIVE:
+Perform a network-focused pentest on an authorized lab target.
+
+WORKFLOW:
+Scope → Host Discovery → Port Scan → Service Enumeration → Vulnerability Identification → Validation → Evidence
+
+HOST DISCOVERY:
+nmap -sn <NETWORK/CIDR>
+
+FULL PORT SCAN:
+sudo nmap -p- <TARGET> -oA day27-full
+
+SERVICE ENUMERATION:
+sudo nmap -sC -sV -p <OPEN_PORTS> <TARGET> -oA day27-services
+
+NSE:
+nmap --script-help <script>
+nmap --script <script> -p <PORT> <TARGET>
+
+RECORD:
+
+IP
+Open ports
+Service
+Version
+Possible vulnerability
+Validation result
+Evidence
+
+METASPLOIT WORKFLOW:
+Nmap finding → Confirm version → Search Metasploit → info → show options → Validate in lab
+
+KEY RULE:
+Open port ≠ vulnerability.
+Service + version + confirmed weakness = finding.
+
+EVIDENCE:
+Save Nmap output and record commands, results, timestamps, and screenshots.
