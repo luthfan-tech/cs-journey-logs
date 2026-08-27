@@ -1,1 +1,37 @@
+Part - 01
 
+Day 6 Notes – Next.js + Tailwind
+
+1.React vs Next.js
+React → Library for building user interfaces
+Next.js → Framework built on top of React that adds routing, structure, and performance features
+
+2.What Next.js Gives You
+-File-based routing (pages based on folder structure)
+-Better performance options (SSR, SSG)
+-Easier production setup
+-Popular for complete web applications
+
+3.Tailwind CSS
+-A utility-first CSS framework.
+-Instead of writing custom CSS, you use ready-made small classes directly in your code.
+
+4.Examples of utility classes:
+text-center
+p-4
+bg-blue-500
+flex
+
+
+5.Why Developers Use Them
+Next.js → Structure + performance + easier full applications
+Tailwind → Faster styling + consistent design + less custom CSS
+
+6.Security Note:
+Never put sensitive keys in variables that start with NEXT_PUBLIC_
+(Those become visible in the browser)
+
+Key Point:
+Next.js = React with extra powers
+
+Tailwind = Fast styling using utility classes
