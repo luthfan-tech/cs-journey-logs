@@ -1,1 +1,32 @@
+Day 28 Notes – Python Backend + Final Overview
 
+1.Django vs FastAPI
+Django → Complete full-stack framework (admin, auth, ORM, etc.)
+FastAPI → Lightweight, modern, high-performance framework focused on APIs
+
+2.When to Choose
+FastAPI → High-speed APIs, microservices, async needs, ML backends
+Django → Full websites, rapid development, built-in admin & authentication
+
+3.ORM
+Object-Relational Mapper → Lets you work with the database using Python code instead of raw SQL
+
+4.Full-Stack Big Picture
+Frontend (React/Next.js)
+↓ API calls
+Backend (Express or FastAPI/Django)
+↓
+Database (MongoDB or PostgreSQL)
+
+5.Key Security Habit
+Always validate and sanitize every user input on the backend.
+
+28-Day Conceptual Series Complete
+How backend works
+Node.js + Express
+MongoDB vs PostgreSQL
+How frontend connects to backend
+Authentication basics
+Next.js + Tailwind
+TypeScript + Docker
+FastAPI vs Django
