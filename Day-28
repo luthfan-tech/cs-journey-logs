@@ -1,3 +1,5 @@
+Part - 01
+
 Day 28 Notes – Python Backend + Final Overview
 
 1.Django vs FastAPI
@@ -30,3 +32,71 @@ Authentication basics
 Next.js + Tailwind
 TypeScript + Docker
 FastAPI vs Django
+
+Part - 02
+
+DAY 28 — PENTEST REPORT WRITING
+
+1.OBJECTIVE:
+Convert lab results into a professional penetration testing report.
+
+2.REPORT STRUCTURE:
+COVER PAGE
+Project name, tester, date, target/environment.
+EXECUTIVE SUMMARY
+Short non-technical summary of what was tested and the major security findings.
+SCOPE
+Target:
+IP/Domain:
+Environment:
+Testing period:
+Out of scope:
+
+3.METHODOLOGY
+Scope → Recon → Enumeration → Vulnerability Assessment → Validation → Evidence → Reporting
+
+4.Tools:
+Nmap, Burp Suite, Wireshark, Metasploit
+
+5.FINDINGS SUMMARY
+Example:
+Finding Severity
+Broken Access Control High
+Information Disclosure Low
+
+6.DETAILED FINDING
+Example:
+Finding: Broken Access Control
+Severity: High
+Affected Asset: Web Application
+Endpoint: /profile?id=123
+
+Description:
+The application did not properly verify authorization for the requested resource.
+
+Evidence:
+Burp Repeater showed that changing the authorized test ID resulted in access to another lab resource.
+
+Impact:
+An unauthorized user may access resources belonging to another user.
+
+Remediation:
+Implement server-side authorization checks for every protected resource.
+
+CONCLUSION
+Summarize the overall security posture and most important improvements.
+APPENDICES
+Nmap output
+Burp requests/responses
+Screenshots
+Commands
+Supporting evidence
+
+7.KEY FORMULA:
+Finding = What is wrong
+Evidence = How you proved it
+Impact = Why it matters
+Remediation = How to fix it
+
+8.IMPORTANT:
+Use only your actual lab evidence. Never invent findings, screenshots, results, or severity.
