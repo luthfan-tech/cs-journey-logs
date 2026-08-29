@@ -42,3 +42,51 @@ User clicks something
 
 Key Point:
 Understanding the flow is more important than memorizing tools.
+
+Part - 02
+
+DAY 29 — FINAL MINI-PENTEST + REPORT
+
+OBJECTIVE:
+Perform one complete authorized pentest from start to finish.
+
+WORKFLOW:
+Scope → Recon → Enumeration → Vulnerability Assessment → Validation → Evidence → Report
+
+NMAP:
+nmap -sn <NETWORK/CIDR>
+sudo nmap -p- <TARGET> -oA day29-full
+sudo nmap -sC -sV -p <OPEN_PORTS> <TARGET> -oA day29-enum
+
+RECORD:
+-IP
+-Open ports
+-Services/versions
+-Interesting attack surface
+
+WEB TESTING:
+Burp → HTTP History → Repeater → Compare responses
+
+NETWORK TESTING:
+Nmap → Service/version → Vulnerability research → Safe validation
+
+METASPLOIT:
+Nmap finding → Search → info → show options → Lab validation
+
+EVIDENCE:
+-Finding
+-Severity
+-Affected asset/endpoint/port
+-Description
+-Evidence
+-Impact
+-Remediation
+
+REPORT:
+Cover Page → Executive Summary → Scope → Methodology → Findings → Conclusion → Appendices
+
+FINAL RULE:
+Only report vulnerabilities you actually confirmed with real lab evidence.
+
+CORE SKILL:
+Discover → Investigate → Validate → Prove → Report.
