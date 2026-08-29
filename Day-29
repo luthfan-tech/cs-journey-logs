@@ -1,1 +1,44 @@
+Part - 01
 
+Day 29 Notes – Full Conceptual Summary
+
+1.How a Full-Stack App Works:
+Frontend → sends Request
+Backend → processes + talks to Database
+Backend → sends JSON Response
+Frontend → updates the UI
+
+2.Core Technologies:
+Frontend: React / Next.js
+Backend: Node.js + Express or Python (FastAPI / Django)
+Database: MongoDB (flexible) or PostgreSQL (structured)
+
+
+3.Important Distinctions:
+Authentication = Who are you?
+Authorization = What can you do?
+MongoDB = Documents (NoSQL)
+PostgreSQL = Tables (SQL)
+React = UI library
+Next.js = React framework
+TypeScript = JavaScript + Types
+Docker = Consistent packaging of apps
+
+
+4.Key Security Rules:
+Never trust data from the frontend
+Always validate input on the backend
+Never store plain text passwords
+Keep secrets in environment variables
+Use HTTPS
+
+
+Big Picture Flow
+User clicks something
+→ Frontend makes API call
+→ Backend handles logic
+→ Database stores/retrieves data
+→ Response goes back to Frontend
+
+Key Point:
+Understanding the flow is more important than memorizing tools.
