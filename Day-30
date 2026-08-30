@@ -16,3 +16,60 @@ understand the big picture
 
 Correct Next Priority
 JavaScript → React → Full-Stack Projects → Polish + Security
+
+Part - 02
+
+DAY 30 — FINAL RECKONING
+
+OBJECTIVE:
+Complete a full authorized pentest independently.
+
+CORE WORKFLOW:
+Scope → Recon → Enumeration → Vulnerability Assessment → Validation → Evidence → Reporting
+
+NMAP:
+nmap -sn <NETWORK/CIDR>
+sudo nmap -p- <TARGET> -oA final-full
+sudo nmap -sC -sV -p <OPEN_PORTS> <TARGET> -oA final-enum
+
+BURP:
+Proxy → HTTP History → Repeater
+
+Inspect:
+Parameters
+IDs
+Cookies
+Headers
+Authentication
+Responses
+
+WIRESHARK:
+dns → DNS traffic
+http → HTTP traffic
+tls → TLS traffic
+tcp → TCP traffic
+ip.addr == <TARGET> → Target traffic
+
+METASPLOIT:
+search → use → info → show options → configure → validate in lab
+
+VULNERABILITIES COVERED:
+IDOR, SQLi, XSS, CSRF, File Upload, Path Traversal, Command Injection, SSRF, Authentication issues
+
+FINDING FORMAT:
+Finding → Severity → Affected Asset → Description → Evidence → Impact → Remediation
+
+REPORT STRUCTURE:
+Cover Page → Executive Summary → Scope → Methodology → Findings → Conclusion → Appendices
+
+CORE RULES:
+Open port ≠ vulnerability.
+Verify before reporting.
+Record real evidence.
+Never test outside scope.
+Use exploitation tools only on authorized labs.
+
+FINAL MINDSET:
+Discover → Enumerate → Analyze → Validate → Prove → Report.
+
+30 DAYS COMPLETE. 🛡️
